@@ -24,8 +24,10 @@
 			<td><fmt:formatNumber value="${item.price }" groupingUsed="true" currencySymbol="￦"/></td>
 			<td>${item.madein }</td>
 			<td>${item.reg_date }</td>
-		<c:if test="${essionScope.loginUser.id != 'admin'}">
-			<td><a href="#" onclick="window.open('../cart/addCart.html?CODE=${item.item_code }','_blank_','width=450,height=200,top=200,left=200')">장바구니 담기</a></td>
+		<c:if test="${sessionScope.loginUser != null && 
+							sessionScope.loginUser.id != 'admin'}">
+			<td><a href="#" 
+			onclick="window.open('../cart/addCart.html?CODE=${item.item_code }','_blank_','width=450,height=200,top=200,left=200')">장바구니 담기</a></td>
 		</c:if>
 		</tr>
 	</c:forEach>	

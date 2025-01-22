@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="itemMapper">
-
 	<delete id="deleteCart" parameterType="String">
-		delete from cart_tbl where id=#{id}
+	delete from cart_tbl where id = #{id}
 	</delete>
 	<update id="updateItem" parameterType="model.Item">
 	update sellingitems_tbl set item_title=#{item_title}, madein=#{madein}, 

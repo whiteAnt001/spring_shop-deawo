@@ -24,11 +24,11 @@ import model.LoginUser;
 @Scope("session")
 public class LoginController {
 	@Autowired
-	private UserDao userDao;
+	private Cart cart;
 	@Autowired
 	private CartDao cartDao;
 	@Autowired
-	private Cart cart;
+	private UserDao userDao;
 	
 	@RequestMapping(value="/login/loginDo.html",method=RequestMethod.POST)
 	public ModelAndView loginDo(@Valid LoginUser loginUser, BindingResult br,
@@ -44,18 +44,20 @@ public class LoginController {
 			mav.addObject("FAIL","YES");
 		}else {//로그인 성공
 			session.setAttribute("loginUser", user);
-			//DB에서 게정으로 장바구니 테이블을 검색한다.
-			List<CartItem> cartList = this.cartDao.selectCart(user.getId()); //로그인한 계정으로 장바구니 테이블을 검색
-			if(cartList.size() > 0) { //장바구니에 데이터가 존재하는 경우
-				Cart cart = this.cart; //생성된 장바구니를 주입
-				cart.setId(user.getId()); //계정 설정
-				for(int i = 0; i < cartList.size(); i++) { //장바구니에 있는 상품의 수 만큼 반복
-					CartItem ci = cartList.get(i); //i번째 상품정보를 검색
-					cart.setCodeList(i, ci.getItem_code()); //장바구니의 codeList에 상품코드 저장
-					cart.setNumList(i, ci.getNum()); //장바구니의 numList에 상품갯수 저장
+			//DB에서 계정으로 장바구니 테이블을 검색한다. 시작
+			List<CartItem> cartList = 
+					this.cartDao.selectCart(user.getId());//로그인한 계정으로 장바구니 테이블 검색
+			if(cartList.size() > 0) {//장바구니에 데이터가 존재하는 경우
+				Cart cart = this.cart;//생성된 장바구니를 주입
+				cart.setId(user.getId());//장바구니의 주인(계정) 설정
+				for(int i=0; i < cartList.size(); i++) {//장바구니에 있는 상품의 수 만큼 반복
+					CartItem ci = cartList.get(i);//i번째 상품정보를 검색
+					cart.setCodeList(i, ci.getItem_code());//장바구니의 codeList에 상품코드 삽입
+					cart.setNumList(i, ci.getNum());//장바구니의 numList에 상품 갯수 삽입
 				}
-				session.setAttribute("CART", cart); //장바구니를 세션에 저장
+				session.setAttribute("CART", cart);//장바구니를 세션에 저장한다.
 			}
+			//DB에서 계정으로 장바구니 테이블을 검색한다. 끝
 		}
 		return mav;
 	}

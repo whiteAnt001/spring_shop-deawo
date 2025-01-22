@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">정상적으로 업로드 되었습니다.</h3>
+<h3 align="center">업로드가 완료되었습니다.</h3>
 </body>
 </html>

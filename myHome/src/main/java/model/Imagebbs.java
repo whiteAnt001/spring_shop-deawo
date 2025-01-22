@@ -1,8 +1,9 @@
 package model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.multipart.MultipartFile;
-
+@Scope("session")
 public class Imagebbs {
 	private Integer w_id;
 	private Integer group_id;
@@ -15,10 +16,9 @@ public class Imagebbs {
 	private String writer;
 	private String w_date;
 	private String imagename;
-	@NotEmpty(message="비밀번호를 입력하세요. 수정 및 삭제시 필요합니다.")
+	@NotEmpty(message="암호를 입력하세요. 수정 및 삭제시 필요합니다.")
 	private String password;
 	private MultipartFile image;
-	
 	public Integer getW_id() {
 		return w_id;
 	}

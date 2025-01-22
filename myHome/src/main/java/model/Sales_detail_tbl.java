@@ -9,12 +9,13 @@ import javax.persistence.ManyToOne;
 public class Sales_detail_tbl {
 	@Id
 	private Integer sale_detail_id;
+	
 	@ManyToOne
 	@JoinColumn(name="sale_id")
 	private Sales_tbl sale;
 	private String item_id;
 	private Integer quantity;
-	private Integer delivery_state; //배송상태 0: 주문완료, 1 : 배송중, 2 : 배송완료
+	private Integer delivery_state;//배송상태 0:주문완료,1:배송중,2:배송완료
 	
 	public Integer getDelivery_state() {
 		return delivery_state;
@@ -47,3 +48,11 @@ public class Sales_detail_tbl {
 		this.quantity = quantity;
 	}
 }
+
+
+
+
+
+
+
+

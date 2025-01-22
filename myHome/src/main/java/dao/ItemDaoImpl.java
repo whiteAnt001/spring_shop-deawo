@@ -14,8 +14,6 @@ public class ItemDaoImpl implements ItemDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	
-	@Override
 	public void deleteCart(String id) {
 		this.sqlSession.delete("itemMapper.deleteCart", id);
 	}

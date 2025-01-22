@@ -27,16 +27,17 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+
 	<bean id="entityManagerFactory" 
-		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"
+	class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"
 		p:persistenceUnitName="myhome"></bean>
+
 	<bean
 	class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
 
 	<context:component-scan base-package="controller, dao, model, logic"></context:component-scan>
 
 	<bean id="startEnd" class="model.StartEnd"></bean>
-	<bean id="fileValidator" class="utils.FileValidator"/>
 
 	<mvc:annotation-driven />
 
@@ -46,18 +47,22 @@
 	        <property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-		p:maxInMemorySize="5242880"
-		p:maxUploadSize="5242880">
-	</bean>
+	<bean id="fileValidator" class="utils.FileValidator"></bean>
 	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-	<property name="basenames">
+	<bean id="messageSource" 
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
 			<list>
 				<value>message</value>
 			</list>
 		</property>
 	</bean>
+	
+	
+	<bean id="multipartResolver" 
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:maxInMemorySize="5242880"
+		p:maxUploadSize="5242880"></bean>
 
 </beans>
 

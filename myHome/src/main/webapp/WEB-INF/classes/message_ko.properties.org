@@ -1,1 +1,1 @@
-error.code.image= 파일을 선택해주세요.
+error.code.image=파일을 선택하세요.

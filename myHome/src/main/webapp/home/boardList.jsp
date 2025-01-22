@@ -39,6 +39,7 @@
 <c:if test="${endPage < pageCount }">
 	<a href="../write/read.html?pageNo=${endPage + 1 }">[¥Ÿ¿Ω]</a>
 </c:if>
+
 </div>	
 </body>
 </html>

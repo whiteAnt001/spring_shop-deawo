@@ -1,17 +1,16 @@
 package model;
 
 public class CartItem {
-	private String id;
+	private String id;//계정
 	private String item_code;
 	private String item_title;
 	private int price;
 	private String item_spec;
 	private String reg_date;
-	private String madein;//원산지국가 코드
+	private String madin;//원산지국가 코드
 	
 	private int sum;//소계(상품코드 별 구매금액)
 	private int num;//갯수(상품코드 별 갯수)
-	
 	
 	public String getId() {
 		return id;
@@ -61,11 +60,11 @@ public class CartItem {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	public String getMadein() {
-		return madein;
+	public String getMadin() {
+		return madin;
 	}
-	public void setMadein(String madein) {
-		this.madein = madein;
+	public void setMadin(String madin) {
+		this.madin = madin;
 	}
 
 }//상품정보 DTO

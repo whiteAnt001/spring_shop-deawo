@@ -12,7 +12,8 @@
 <body>
 <div align="right"><a href="../entry/userEntry.html">가입하기</a></div>
 <div align="center" >
-<form:form action="../login/loginDo.html" method="post" modelAttribute="loginUser">
+<form:form action="../login/loginDo.html" method="post" 
+		modelAttribute="loginUser">
 	계정 : <form:input path="id" size="12"/>
 		<font color="red"><form:errors path="id"/></font><br/>
 	암호 : <form:password path="password" size="12"/>

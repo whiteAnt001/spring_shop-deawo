@@ -25,12 +25,17 @@ public class User_info {
 	private Integer grade;
 	@NotEmpty(message="이메일을 입력하세요.")
 	private String email;
-	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	private String job;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getUser_id() {
 		return user_id;
 	}
@@ -85,10 +90,12 @@ public class User_info {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }
+
+
+
+
+
+
+
+

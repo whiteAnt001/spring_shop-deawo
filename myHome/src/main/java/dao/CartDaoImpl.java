@@ -8,26 +8,23 @@ import org.springframework.stereotype.Repository;
 
 import model.CartItem;
 @Repository
-public class CartDaoImpl implements CartDao{
+public class CartDaoImpl implements CartDao {
 	@Autowired
-	private SqlSession session;
+	private SqlSession sqlSession;
+
+	public void insertCart(CartItem ci) {
+		this.sqlSession.insert("cartMapper.insertCart",ci);
+	}
+	public void deleteCart(CartItem ci) {
+		this.sqlSession.delete("cartMapper.deleteCart",ci);
+	}
+	public void updateCart(CartItem ci) {
+		this.sqlSession.update("cartMapper.updateCart",ci);
+	}
 	public List<CartItem> selectCart(String id) {
-		return this.session.selectList("cartMapper.selectCart", id);
-	}
-
-	@Override
-	public void updateCart(CartItem cartItem) {
-		this.session.update("cartMapper.updateCart",  cartItem);
-	}
-
-	@Override
-	public void deleteCart(CartItem cartItem) {
-		this.session.delete("cartMapper.deleteCart", cartItem);
-	}
-
-	@Override
-	public void putCart(CartItem cartItem) {
-		this.session.insert("cartMapper.putCart", cartItem);
+		return this.sqlSession.selectList("cartMapper.selectCart",id);
 	}
 
 }
+
+

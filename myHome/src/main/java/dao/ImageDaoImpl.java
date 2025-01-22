@@ -8,56 +8,52 @@ import org.springframework.stereotype.Repository;
 
 import model.Imagebbs;
 import model.StartEnd;
-
 @Repository
 public class ImageDaoImpl implements ImageDao {
 	@Autowired
-	private SqlSession session;
-	
-	
-	@Override
+	private SqlSession sqlSession;
+ 
 	public void updateOrderNo(Imagebbs bbs) {
-		this.session.update("imageMapper.updateOrderNo", bbs);
+		this.sqlSession.update("imageMapper.updateOrderNo", bbs);
 	}
 
-	@Override
 	public void updateImageBBS(Imagebbs bbs) {
-		this.session.update("imageMapper.updateImageBBS", bbs);
+		this.sqlSession.update("imageMapper.updateImageBBS", bbs);
 	}
 
-	@Override
 	public void deleteImageBBS(Integer id) {
-		this.session.delete("imageMapper.deleteImageBBS", id);
+		this.sqlSession.delete("imageMapper.deleteImageBBS", id);
 	}
 
-	@Override
 	public Integer getReplyCount(Integer id) {
-		return this.session.selectOne("imageMapper.getReplyCount", id);
+		return this.sqlSession.selectOne("imageMapper.getReplyCount",id);
 	}
 
-	@Override
 	public Imagebbs getImageDetail(Integer id) {
-		return this.session.selectOne("imageMapper.getImageDetail", id);
+		return this.sqlSession.selectOne("imageMapper.getImageDetail",id);
 	}
 
-	@Override
 	public Integer getTotal() {
-		return this.session.selectOne("imageMapper.getTotal");
+		return this.sqlSession.selectOne("imageMapper.getTotal");
 	}
 
-	@Override
-	public List<Imagebbs> imageList(StartEnd se) {
-		return this.session.selectList("imageMapper.imageList", se);
+	public List<Imagebbs> imageList(StartEnd st) {
+		return this.sqlSession.selectList("imageMapper.imageList", st);
 	}
 
-	@Override
 	public Integer getMaxWid() {
-		return this.session.selectOne("imageMapper.getMaxWid");
+		Integer max = this.sqlSession.selectOne("imageMapper.getMaxWid");
+		if(max == null) return 0;
+		else return max; 
 	}
 
-	@Override
 	public void putImagebbs(Imagebbs bbs) {
-		this.session.insert("imageMapper.putImagebbs", bbs);
+		this.sqlSession.insert("imageMapper.putImagebbs", bbs);
 	}
 
 }
+
+
+
+
+

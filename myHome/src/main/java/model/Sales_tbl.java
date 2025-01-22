@@ -1,20 +1,20 @@
 package model;
 
-
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Sales_tbl {
 	@Id
 	private Integer sale_id;
 	private String user_id;
 	private String sale_time;
-	
-	@OneToMany(mappedBy="sale") //mappedBy의 의미 : Sales_detail_tbl에서 어떤 이름으로 Sale_tbl을 참조하느냐?
-	private Set<Sales_detail_tbl> details; //List가 아닌 Set으로 설정하는 이유 : List는 중복처리를 못함
+
+	@OneToMany(mappedBy="sale")
+	private Set<Sales_detail_tbl> details;
 
 	public Integer getSale_id() {
 		return sale_id;
@@ -47,4 +47,15 @@ public class Sales_tbl {
 	public void setDetails(Set<Sales_detail_tbl> details) {
 		this.details = details;
 	}
+	
+
 }
+
+
+
+
+
+
+
+
+

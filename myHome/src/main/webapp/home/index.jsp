@@ -41,8 +41,8 @@ td.main { width: 30%; border: 1px solid green; }
 				<div id="menu">
 					<a href="../home/index.html">■ 홈으로</a><br/>
 					
-					<c:if test="${ sessionScope.loginUser != null }">
-					<a href="../mypage/index.html">■ MY PAGE</a><br/>
+					<c:if test="${sessionScope.loginUser != null }">
+						<a href="../mypage/index.html">■ MY PAGE</a><br/>
 					</c:if>
 					
 					<a href="../write/read.html">■ 게시글 보기</a><br/>
@@ -50,19 +50,20 @@ td.main { width: 30%; border: 1px solid green; }
 						<a href="../write/write.html">■ 게시글 쓰기</a><br/>
 					</c:if>
 					<a href="../item/itemList.html">■ 상품 보기</a><br/>
-					<c:if test="${sessionScope.loginUser.id != null && id !='admin' }">
+					<c:if test="${sessionScope.loginUser != null && 
+									sessionScope.loginUser.id !='admin' }">
 						<a href="../cart/show.html">■ 장바구니 보기</a><br/>
 					</c:if>
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id=='admin' }">
-									
-						<a href="../admin/delivery.html">■ 배송 상태 변경</a><br/>
+						<a href="../admin/deliverymenu.html">■ 배송 상태 변경</a><br/>
 						<a href="../nation/inputNation.html">■ 상품 원산지 등록</a><br/>
 						<a href="">■ 상품 원산지 등록(form:form)</a><br/>
 						<a href="../item/entry.html">■ 상품 등록</a><br/>
 					</c:if>
 					<a href="../notice/list.html">■ 공지사항 보기</a><br/>
-					<c:if test="${ sessionScope.loginUser != null && sessionScope.loginUser.id != 'admin' }">
+					<c:if test="${sessionScope.loginUser != null &&
+									sessionScope.loginUser.id != 'admin' }">
 						<a href="../image/imageWrite.html">■ 이미지 및 답글 게시글 쓰기</a><br/>
 					</c:if>
 					<a href="../image/imageList.html">■ 이미지 및 답글 게시글 보기</a><br/>

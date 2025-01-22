@@ -20,7 +20,7 @@
 			<td>${dto.write_date }</td><td>${dto.writer }</td></tr>
 	</c:forEach>
 </table>
-<c:set var="currentPage" value="${ requestScope.currentPage}" />
+<c:set var="currentPage" value="${currentPage}" />
 <c:set var="startPage"
 	value="${currentPage - (currentPage % 10 == 0 ? 10 :(currentPage % 10)) + 1 }" />
 <c:set var="endPage" value="${startPage + 9}"/>	
@@ -39,6 +39,7 @@
 <c:if test="${endPage < pageCount }">
 	<a href="../notice/list.html?pageNo=${endPage + 1 }">[¥Ÿ¿Ω]</a>
 </c:if>
+
 </div>
 </body>
 </html>

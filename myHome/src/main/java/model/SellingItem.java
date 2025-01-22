@@ -16,11 +16,9 @@ public class SellingItem {
 	private String item_title;
 	private Integer price;
 	private String item_spec;
-	
 	@Temporal(TemporalType.DATE)
 	private Date reg_date;
 	private String madein;
-	
 	public String getItem_code() {
 		return item_code;
 	}
@@ -58,3 +56,6 @@ public class SellingItem {
 		this.madein = madein;
 	}
 }
+
+
+

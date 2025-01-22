@@ -8,10 +8,24 @@
 </head>
 <body>
 <script type="text/javascript">
-	setTimeout(function() {
-		alert("가입자 정보가 수정되었습니다.");
-		},100);
-	location.href="../mypage/myinfomation.html"; //가입자 정보로 다시 이동하여 수정된 정보로 띄어줌
+
+alert("가입자 정보가 수정되었습니다.");
+ 
+
+location.href="../mypage/myinformation.html";//내 정보 보기로 돌아간다.
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
