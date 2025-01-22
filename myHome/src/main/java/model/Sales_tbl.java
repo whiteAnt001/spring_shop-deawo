@@ -14,7 +14,7 @@ public class Sales_tbl {
 	private String sale_time;
 	
 	@OneToMany(mappedBy="sale") //mappedBy의 의미 : Sales_detail_tbl에서 어떤 이름으로 Sale_tbl을 참조하느냐?
-	private Set<Sales_detail_tbl> details;
+	private Set<Sales_detail_tbl> details; //List가 아닌 Set으로 설정하는 이유 : List는 중복처리를 못함
 
 	public Integer getSale_id() {
 		return sale_id;

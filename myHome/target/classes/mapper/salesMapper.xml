@@ -9,6 +9,6 @@
 		insert into sales_tbl values(#{saleId}, #{userId}, #{saleTime})
 	</insert>
 	<insert id="putSaleDetail" parameterType="model.SaleDetail">
-		insert into sales_Detail_tbl values(#{saleDetailId}, #{saleId}, #{itemId}, #{quantity})
+		insert into sales_detail_tbl(sale_detail_id, sale_id, item_id, quantity) values(#{saleDetailId},#{saleId},#{itemId},#{quantity})
 	</insert>
 </mapper>

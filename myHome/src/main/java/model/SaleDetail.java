@@ -12,11 +12,11 @@ public class SaleDetail {
 	private Integer saleDetailId; //매출 상세번호
 	
 	public SaleDetail(Sale sale, Integer saleDetailId, ItemSet itemSet, Timestamp currentTime) {
-		this.sale = sale;
+		this.sale = sale;	
 		this.saleDetailId = saleDetailId;
-		this.item = itemSet.getItem();
-		this.itemId = itemSet.getItem().getItem_code();
+		this.item = itemSet.getItem();		
 		this.quantity = itemSet.getQuantity();
+		this.itemId = itemSet.getItem().getItem_code();
 		this.saleTime = String.valueOf(currentTime);
 	}
 
