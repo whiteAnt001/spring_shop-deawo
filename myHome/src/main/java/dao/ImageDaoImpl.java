@@ -34,7 +34,9 @@ public class ImageDaoImpl implements ImageDao {
 	}
 
 	public Integer getTotal() {
-		return this.sqlSession.selectOne("imageMapper.getTotal");
+		Integer cnt = this.sqlSession.selectOne("imageMapper.getTotal");
+		if(cnt == null) return 0;
+		else return cnt; 
 	}
 
 	public List<Imagebbs> imageList(StartEnd st) {

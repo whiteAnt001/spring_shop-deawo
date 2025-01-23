@@ -41,8 +41,13 @@ td.main { width: 30%; border: 1px solid green; }
 				<div id="menu">
 					<a href="../home/index.html">■ 홈으로</a><br/>
 					
-					<c:if test="${sessionScope.loginUser != null }">
+					<c:if test="${sessionScope.loginUser != null && 
+									sessionScope.loginUser.id != 'admin'}">
 						<a href="../mypage/index.html">■ MY PAGE</a><br/>
+					</c:if>
+					<c:if test="${sessionScope.loginUser != null && 
+									sessionScope.loginUser.id == 'admin'}">
+						<a href="../admin/findpage.html">■ 가입자 조회</a><br/>
 					</c:if>
 					
 					<a href="../write/read.html">■ 게시글 보기</a><br/>

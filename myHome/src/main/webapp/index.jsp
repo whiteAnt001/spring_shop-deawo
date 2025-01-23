@@ -14,4 +14,4 @@
 		<c:url value="/home/index.html" var="messageUrl" />
 		<a href="${messageUrl}">Click to enter</a>
 	</body>
-</html>
+</html>	

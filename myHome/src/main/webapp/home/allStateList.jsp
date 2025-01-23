@@ -54,7 +54,7 @@
 </c:forEach>	
 </table><br/>
 <c:forEach begin="1" end="${pageCount }" var="page">
-	<a href="../admin/deliverylist.html?PAGE=${page }">${page }</a>
+	<a href="../admin/orderStateSearch.html?PAGE=${page }&state=${state}">${page }</a>
 </c:forEach>
 <br/>
 </div>
