@@ -6,6 +6,9 @@ import model.Imagebbs;
 import model.StartEnd;
 
 public interface ImageDao {
+	List<Imagebbs> getImageBytitle(StartEnd se); // title로 제목을 검색
+	Integer getImageCountByTitle(String title); // title을 가진 제목의 수
+	List<Object[]> getImageList(String id); //유저 아이디로 이미지 게시글 찾기
 	void updateOrderNo(Imagebbs bbs);//답글의 순서번호를 수정
 	void updateImageBBS(Imagebbs bbs);//Imagebbs로 게시글 수정
 	void deleteImageBBS(Integer id);//글번호로 게시글 삭제

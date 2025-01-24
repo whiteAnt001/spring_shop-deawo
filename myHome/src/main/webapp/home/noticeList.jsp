@@ -15,7 +15,7 @@
 <table border="1">
 	<tr><th>글번호</th><th>제 목</th><th>작성일</th><th>작성자</th></tr>
 	<c:forEach var="dto" items="${NOTICES}">
-		<tr><td>${dto.num }</td>
+		<tr align="center"><td>${dto.num }</td>
 			<td><a href="../notice/detail.html?NO=${dto.num }">${dto.title }</a></td>
 			<td>${dto.write_date }</td><td>${dto.writer }</td></tr>
 	</c:forEach>

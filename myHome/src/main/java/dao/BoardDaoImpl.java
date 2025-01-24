@@ -16,6 +16,22 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private StartEnd se;
 	
+	
+	@Override
+	public List<Board> getBoardList(StartEnd se) {
+		return this.session.selectList("boardMapper.getBoardList", se);
+	}
+
+	@Override
+	public List<Board> getBoardByTitle(StartEnd se) {
+		return this.session.selectList("boardMapper.getBoardByTitle", se);
+	}
+
+	@Override
+	public Integer getBoardCountByTitle(String title) {
+		return this.session.selectOne("boardMapper.getBoardCountByTitle", title);
+	}
+
 	@Override
 	public Integer totalCount() {
 		return this.session.selectOne("boardMapper.getTotalCount");

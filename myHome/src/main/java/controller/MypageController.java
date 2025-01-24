@@ -5,17 +5,21 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import dao.ImageDao;
 import dao.MyInformationDao;
 import dao.SalesDao;
 import dao.SellingItemDao;
+import model.Imagebbs;
 import model.LoginUser;
 import model.SellingItem;
+import model.StartEnd;
 import model.User_info;
 
 @Controller
@@ -26,6 +30,34 @@ public class MypageController {
 	private SalesDao salesDao;
 	@Autowired
 	private SellingItemDao sellingItemDao;
+	@Autowired
+	private ImageDao imageDao;
+	
+	@RequestMapping(value="/mypage/myimage.html")
+	public ModelAndView myimage(String id, Integer page, HttpSession session) {
+		ModelAndView mav = new ModelAndView("index");
+		LoginUser user = (LoginUser)session.getAttribute("loginUser");
+		id = user.getId(); //로그인한 계정을 찾아줌
+		List<Object[]> list = this.imageDao.getImageList(id); //유저 아이디로 게시글을 찾음
+		int currentPage = 1;
+		if(page != null) {
+			currentPage = page;
+		}
+		int totalCount = list.size();
+		int pageCount = totalCount / 5;
+		if(totalCount % 5 != 0) {
+			pageCount++;
+		}
+		int startRow = (currentPage - 1) * 5;
+		int endRow = Math.min(startRow + 5, totalCount);
+		if(endRow > totalCount) endRow = totalCount;
+		List<Object[]> imageList = list.subList(startRow, endRow);
+		mav.addObject("pageCount", pageCount);
+		mav.addObject("BODY", "findImage.jsp");
+		mav.addObject("id", id); //유저의 아이디를 파라미터로 넘겨줌
+		mav.addObject("list", imageList);
+		return mav;
+	}
 	@RequestMapping(value="/mypage/itemdetail.html")
 	public ModelAndView itemdetail(String id) {
 		ModelAndView mav = new ModelAndView("index");

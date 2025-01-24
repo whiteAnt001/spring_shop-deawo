@@ -31,6 +31,33 @@ public class ImageController {
 	@Autowired
 	private ImageDao imageDao;
 	
+	@RequestMapping(value="/image/search.html")
+	public ModelAndView search(String title, Integer PAGE_NUM) {
+		int currentPage = 1;
+		if(PAGE_NUM != null) currentPage = PAGE_NUM;
+		int count = this.imageDao.getImageCountByTitle(title);//title을 제목으로 가진 이미지 게시글의 갯수를 검색
+		int startRow = 0; int endRow = 0; int totalPageCount = 0;
+		if(count > 0) {
+			totalPageCount = count / 5;
+			if(count % 5 != 0) totalPageCount++;
+			startRow = (currentPage - 1) * 5;
+			endRow = ((currentPage - 1) * 5) + 6;
+			if(endRow > count) endRow = count;
+		}
+		StartEnd se = new StartEnd(); se.setStart(startRow); se.setEnd(endRow); se.setTitle(title);
+		List<Imagebbs> imageList = this.imageDao.getImageBytitle(se);//DB에서 title을 제목으로 가진 이미지 게시글을 5개 검색한다.
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("BODY","imageByTitleList.jsp");
+		mav.addObject("START",startRow); 
+		mav.addObject("END", endRow);
+		mav.addObject("TOTAL", count);	
+		mav.addObject("currentPage",currentPage);
+		mav.addObject("LIST",imageList); 
+		mav.addObject("pageCount",totalPageCount);
+		mav.addObject("title", title);
+		return mav;
+	}
+	
 	@RequestMapping(value="/image/imageReplyForm.html")
 	public ModelAndView replyform(Integer id, Integer parentid, Integer groupid) {
 		ModelAndView mav = new ModelAndView("index");

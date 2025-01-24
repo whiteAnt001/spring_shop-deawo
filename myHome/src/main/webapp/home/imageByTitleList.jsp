@@ -40,36 +40,31 @@
 	<c:set var="endPage" value="${pageCount }"/>
 </c:if>
 <c:if test="${startPage > 10 }">
-	<a href="../image/imageList.html?PAGE_NUM=${startPage - 1 }">[이전]</a>
+	<a href="#" onclick="movePage(${startPage - 1 })">[이전]</a>
 </c:if>
 <c:forEach begin="${startPage }" end="${endPage }" var="i">
 	<c:if test="${currentPage == i }">
 		<font size="6">
 	</c:if>
-	<a href="../image/imageList.html?PAGE_NUM=${ i }">${ i }</a>
+	<a href="#" onclick="movePage(${ i })">${ i }</a>
 	<c:if test="${currentPage == i }">
 		</font>
 	</c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount }">
-	<a href="../image/imageList.html?PAGE_NUM=${endPage + 1 }">[다음]</a>
+	<a href="#" onclick="movePage(${endPage + 1 })">[다음]</a>
 </c:if>
 </div>
+<form method="post" name="imagefm">
+	<input type="hidden" name="title" value="${ title }"/>
+	<input type="hidden" name="PAGE_NUM"/>
+</form>
+<script type="text/javascript">
+function movePage(page){
+	document.imagefm.PAGE_NUM.value = page;
+	document.imagefm.action= "../image/search.html";
+	document.imagefm.submit();
+}
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

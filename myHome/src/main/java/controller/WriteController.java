@@ -13,13 +13,41 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dao.BoardDao;
 import model.Board;
+import model.Imagebbs;
 import model.LoginUser;
+import model.StartEnd;
 
 @Controller
 public class WriteController {
 	@Autowired
 	private BoardDao boardDao;
 	
+	@RequestMapping(value="/write/search.html")
+	public ModelAndView search(String title, Integer pageNo) {
+		int currentPage = 1;
+		if(pageNo != null) currentPage = pageNo;
+		int count = this.boardDao.getBoardCountByTitle(title);//title을 제목으로 가진 이미지 게시글의 갯수를 검색
+		int startRow = 0; int endRow = 0; int totalPageCount = 0;
+		if(count > 0) {
+			totalPageCount = count / 5;
+			if(count % 5 != 0) totalPageCount++;
+			startRow = (currentPage - 1) * 5;
+			endRow = ((currentPage - 1) * 5) + 6;
+			if(endRow > count) endRow = count;
+		}
+		StartEnd se = new StartEnd(); se.setStart(startRow); se.setEnd(endRow); se.setTitle(title);
+		List<Board> boardList = this.boardDao.getBoardByTitle(se);//DB에서 title을 제목으로 가진 이미지 게시글을 5개 검색한다.
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("BODY","boardByTitleResult.jsp");
+		mav.addObject("START",startRow); 
+		mav.addObject("END", endRow);
+		mav.addObject("TOTAL", count);	
+		mav.addObject("currentPage",currentPage);
+		mav.addObject("BOARD",boardList); 
+		mav.addObject("pageCount",totalPageCount);
+		mav.addObject("title", title);
+		return mav;
+	}
 	@RequestMapping(value="/write/modify.html")
 	public ModelAndView modify(Integer SEQ,String TITLE,String CONTENT,String BTN) {
 		if(BTN.equals("수정")) {
@@ -44,18 +72,28 @@ public class WriteController {
 	}
 	
 	@RequestMapping(value="/write/read.html")
-	public ModelAndView read(Integer pageNo) {
+	public ModelAndView read(Integer PAGE_NUM) {
 		int currentPage = 1;
-		if(pageNo != null) currentPage = pageNo;
-		List<Board> bbsList = this.boardDao.readBoard(pageNo);
+		if(PAGE_NUM != null) currentPage = PAGE_NUM;
+		int count = this.boardDao.totalCount();//이미지 게시글의 갯수를 검색
+		int startRow = 0; int endRow = 0; int totalPageCount = 0;
+		if(count > 0) {
+			totalPageCount = count / 5;
+			if(count % 5 != 0) totalPageCount++;
+			startRow = (currentPage - 1) * 5;
+			endRow = ((currentPage - 1) * 5) + 6;
+			if(endRow > count) endRow = count;
+		}
+		StartEnd se = new StartEnd(); se.setStart(startRow); se.setEnd(endRow);
+		List<Board> boardList = this.boardDao.getBoardList(se);//DB에서 이미지 게시글을 5개 검색한다.
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("BODY","boardList.jsp");
-		mav.addObject("BOARD", bbsList);
+		mav.addObject("START",startRow); 
+		mav.addObject("END", endRow);
+		mav.addObject("TOTAL", count);	
 		mav.addObject("currentPage",currentPage);
-		int totalCount = this.boardDao.totalCount();//전체 게시글의 갯수 검색
-		int pageCount = totalCount / 5;
-		if(totalCount % 5 != 0) pageCount++;
-		mav.addObject("PAGES",pageCount);
+		mav.addObject("BOARD",boardList); 
+		mav.addObject("pageCount",totalPageCount);
 		return mav;
 	}
 	

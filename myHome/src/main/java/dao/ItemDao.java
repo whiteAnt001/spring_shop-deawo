@@ -7,6 +7,8 @@ import model.Nation;
 import model.StartEnd;
 
 public interface ItemDao {
+	List<Item> getItemByName(StartEnd se); //상품 이름으로 검색
+	Integer getItemCountByName(String name); //상품 이름의 아이템 갯수
 	void deleteCart(String id);//고객의 계정에 해당하는 장바구니 삭제
 	void updateItem(Item item);//상품코드로 상품정보 변경
 	void deleteItem(String code);//상품코드로 상품 삭제

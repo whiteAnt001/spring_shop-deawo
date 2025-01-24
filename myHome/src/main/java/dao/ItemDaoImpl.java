@@ -14,6 +14,16 @@ public class ItemDaoImpl implements ItemDao {
 	@Autowired
 	private SqlSession sqlSession;
 
+	@Override
+	public List<Item> getItemByName(StartEnd se) {
+		return this.sqlSession.selectList("itemMapper.getItemByName", se);
+	}
+
+	@Override
+	public Integer getItemCountByName(String name) {
+		return this.sqlSession.selectOne("itemMapper.getItemCountByName", name);
+	}
+
 	public void deleteCart(String id) {
 		this.sqlSession.delete("itemMapper.deleteCart", id);
 	}

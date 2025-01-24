@@ -48,26 +48,27 @@
 	<c:set var="endPage" value="${pageCount}"/>
 </c:if>
 <c:if test="${startPage > 10}">
-	<a href="../item/itemList.html?PAGE_NUM=${startPage - 1}">[이전]</a>
+	<a href="#" onclick="movePage(${ startpage - 1})">[이전]</a>
 </c:if>
 <c:forEach begin="${startPage}" end="${endPage}" var="i">
 	<c:if test="${currentPage == i}"><font size="6"></c:if>
-	<a href="../item/itemList.html?PAGE_NUM=${ i }">${ i }</a>
+	<a href="#" onclick="movePage(${ i })">${ i }</a>
 	<c:if test="${currentPage == i}"></font></c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount}">
-	<a href="../item/itemList.html?PAGE_NUM=${endPage + 1 }">[다음]</a>
+	<a href="#" onclick="movePage(${ endPage + 1 })">[다음]</a>
 </c:if>
 </div>
+<form method="post" name="itemfm">
+	<input type="hidden" name="NAME" value="${ NAME }"/>
+	<input type="hidden" name="PAGE_NUM"/>
+</form>
+<script type="text/javascript"> 
+function movePage(page){
+	document.itemfm.PAGE_NUM.value = page;
+	document.itemfm.action= "../item/search.html";
+	document.itemfm.submit();
+}
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

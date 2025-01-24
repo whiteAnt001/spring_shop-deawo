@@ -21,7 +21,25 @@ import model.StartEnd;
 public class ItemController {
 	@Autowired
 	private ItemDao itemDao;
-	
+	@RequestMapping(value="/item/search.html")
+	public ModelAndView search(String NAME, Integer PAGE_NUM) {
+		int currentPage = 1;
+		if(PAGE_NUM != null) currentPage = PAGE_NUM;
+		int start = (currentPage - 1) * 5;
+		int end = ((currentPage - 1) * 5) + 6;
+		StartEnd se = new StartEnd(); se.setStart(start); se.setEnd(end); se.setName(NAME);
+		List<Item> itemList = this.itemDao.getItemByName(se);//5개의 상품목록을 검색
+		Integer totalCount = this.itemDao.getItemCountByName(NAME);//전체상품 갯수 검색
+		int pageCount = totalCount / 5;
+		if(totalCount % 5 != 0) pageCount++;
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("startRow",start); mav.addObject("endRow",end); 
+		mav.addObject("total",totalCount); mav.addObject("ITEMS", itemList);
+		mav.addObject("pageCount", pageCount); mav.addObject("currentPage",currentPage);
+		mav.addObject("BODY","itemByNameList.jsp");
+		mav.addObject("NAME", NAME);
+		return mav;
+	}
 	@RequestMapping(value="/item/modifyff.html")
 	public ModelAndView modifyff(@Valid Item item, BindingResult br, String BTN) {
 		ModelAndView mav = new ModelAndView("index");
