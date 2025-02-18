@@ -1,27 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>ÀÌ¹ÌÁö °Ô½Ã±Û »ó¼¼º¸±â</h3>
+<h3>ì´ë¯¸ì§€ ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸°</h3>
 <table>
-	<tr><th>Á¦ ¸ñ</th><td>${IMAGE.title }</td></tr>
-	<tr><th>ÀÛ¼ºÀÚ</th><td>${IMAGE.writer }</td></tr>
-	<tr><th>ÀÛ¼ºÀÏ</th><td>${IMAGE.w_date }</td></tr>
+	<tr><th>ì œ ëª©</th><td>${IMAGE.title }</td></tr>
+	<tr><th>ì‘ì„±ì</th><td>${IMAGE.writer }</td></tr>
+	<tr><th>ì‘ì„±ì¼</th><td>${IMAGE.w_date }</td></tr>
 	<tr><td colspan="2" align="center">
 		<img alt="" src="${pageContext.request.contextPath}/upload/${IMAGE.imagename}"
 			width="250" height="200"/></td></tr>
-	<tr><th>³» ¿ë</th><td><textarea rows="5" cols="60" 
+	<tr><th>ë‚´ ìš©</th><td><textarea rows="5" cols="60" 
 			readonly="readonly">${IMAGE.content }</textarea></td></tr>
 	<tr><td colspan="2" align="center">
-		<a href="javascript:goReply()">[´ä±Û]</a>
-		<a href="../image/imageList.html">[¸ñ·Ï]</a></td></tr>
+		<a href="javascript:goReply()">[ë‹µê¸€]</a>
+		<a href="../image/imageList.html">[ëª©ë¡]</a></td></tr>
 </table>
 </div>
 <form name="move" method="post">
@@ -31,7 +30,7 @@
 </form>
 <script type="text/javascript">
 function goReply(){
-	document.move.action="../image/imageReplyForm.html";
+	document.move.action="/image/imageReplyForm.html";
 	document.move.submit();
 }
 </script>

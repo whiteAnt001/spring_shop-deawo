@@ -1,22 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*, model.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <c:set var="pageCount" value="${PAGES}"/>	
-<h3 align="center">°øÁö»çÇ× ¸ñ·Ï</h3>
+<h3 align="center">ê³µì§€ì‚¬í•­ ëª©ë¡</h3>
 <div align="center">
 <table border="1">
-	<tr><th>±Û¹øÈ£</th><th>Á¦ ¸ñ</th><th>ÀÛ¼ºÀÏ</th><th>ÀÛ¼ºÀÚ</th></tr>
+	<tr><th>ê¸€ë²ˆí˜¸</th><th>ì œ ëª©</th><th>ì‘ì„±ì¼</th><th>ì‘ì„±ì</th></tr>
 	<c:forEach var="dto" items="${NOTICES}">
-		<tr align="center"><td>${dto.num }</td>
-			<td><a href="../notice/detail.html?NO=${dto.num }">${dto.title }</a></td>
+		<tr><td>${dto.num }</td>
+			<td><a href="/notice/detail.html?NO=${dto.num }">${dto.title }</a></td>
 			<td>${dto.write_date }</td><td>${dto.writer }</td></tr>
 	</c:forEach>
 </table>
@@ -29,7 +28,7 @@
 	<c:set var="endPage" value="${pageCount }" />
 </c:if>
 <c:if test="${startPage > 10 }">
-	<a href="../notice/list.html?pageNo=${startPage - 1 }">[ÀÌÀü]</a>
+	<a href="../notice/list.html?pageNo=${startPage - 1 }">[ì´ì „]</a>
 </c:if>
 <c:forEach begin="${startPage }" end="${endPage }" var="i">
 	<c:if test="${currentPage == i }"><font size="6"></c:if>
@@ -37,7 +36,7 @@
 	<c:if test="${currentPage == i }"></font></c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount }">
-	<a href="../notice/list.html?pageNo=${endPage + 1 }">[´ÙÀ½]</a>
+	<a href="../notice/list.html?pageNo=${endPage + 1 }">[ë‹¤ìŒ]</a>
 </c:if>
 
 </div>

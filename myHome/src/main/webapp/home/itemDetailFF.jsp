@@ -1,26 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.Item" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>»óÇ° »ó¼¼ Á¤º¸</h3>
+<h3>ìƒí’ˆ ìƒì„¸ ì •ë³´</h3>
 <form:form modelAttribute="item">
 <table>
-	<tr><th>»óÇ°¹øÈ£</th><td>${item.item_code }</td></tr>
-	<tr><th>»óÇ°ÀÌ¸§</th><td>${item.item_title }</td></tr>
-	<tr><th>»óÇ°°¡°İ</th><td>${item.price }¿ø</td></tr>
-	<tr><th>¿ø »ê Áö</th><td>${item.madein }</td></tr>
-	<tr><th>µî ·Ï ÀÏ</th><td>${item.reg_date }</td></tr>
-	<tr><th>»óÇ°¼³¸í</th><td>${item.item_spec }</td></tr>
+	<tr><th>ìƒí’ˆë²ˆí˜¸</th><td><form:input path="item_code" readonly="true"/></td></tr>
+	<tr><th>ìƒí’ˆì´ë¦„</th><td><form:input path="item_title" readonly="true"/></td></tr>
+	<tr><th>ìƒí’ˆê°€ê²©</th><td>${item.price }ì›</td></tr>
+	<tr><th>ì› ì‚° ì§€</th><td>${item.madein }</td></tr>
+	<tr><th>ë“± ë¡ ì¼</th><td><form:input path="reg_date"/></td></tr>
+	<tr><th>ìƒí’ˆì„¤ëª…</th><td>
+		<form:textarea path="item_spec" rows="5" cols="40"/></textarea>
+		</td></tr>
 </table>
 </form:form>
 </div>

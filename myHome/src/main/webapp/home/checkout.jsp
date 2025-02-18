@@ -1,35 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center" class="body">
-<h2>±¸¸Å È­¸é</h2>
-<font color="red"><b>¹è¼Û ¹ŞÀ» °÷</b></font>
+<h2>êµ¬ë§¤ í™”ë©´</h2>
+<font color="red"><b>ë°°ì†¡ ë°›ì„ ê³³</b></font>
 <table>
-	<tr><th>»ç¿ëÀÚID</th><td>${loginUser.user_id }</td></tr>
-	<tr><th>ÀÌ ¸§</th><td>${loginUser.name }</td></tr>
-	<tr><th>ÁÖ ¼Ò</th><td>${loginUser.addr }</td></tr>
-	<tr><th>ÀÌ¸ŞÀÏ</th><td>${loginUser.email }</td></tr>
+	<tr><th>ì‚¬ìš©ìID</th><td>${loginUser.user_id }</td></tr>
+	<tr><th>ì´ ë¦„</th><td>${loginUser.name }</td></tr>
+	<tr><th>ì£¼ ì†Œ</th><td>${loginUser.addr }</td></tr>
+	<tr><th>ì´ë©”ì¼</th><td>${loginUser.email }</td></tr>
 </table><br/><br/>
-<font color="red"><b>±¸¸Å ¸ñ·Ï</b></font>
+<font color="red"><b>êµ¬ë§¤ ëª©ë¡</b></font>
 <table>
-	<tr><th width="200">»óÇ°¸í</th><th width="150">°¡ °İ</th><th width="50">°¹ ¼ö</th>
-		<th width="150">¼Ò °è</th></tr>
+	<tr><th width="200">ìƒí’ˆëª…</th><th width="150">ê°€ ê²©</th><th width="50">ê°¯ ìˆ˜</th>
+		<th width="150">ì†Œ ê³„</th></tr>
 	<c:forEach items="${itemList}" var="itemSet">
 	<tr><td align="left">${itemSet.item.item_title }</td>
-		<td align="right">${itemSet.item.price }¿ø</td>
-		<td align="right">${itemSet.quantity }°³</td>
-		<td align="right">${itemSet.quantity * itemSet.item.price }¿ø</td></tr>
+		<td align="right">${itemSet.item.price }ì›</td>
+		<td align="right">${itemSet.quantity }ê°œ</td>
+		<td align="right">${itemSet.quantity * itemSet.item.price }ì›</td></tr>
 	</c:forEach>
-</table><br/><br/><b>±¸ ¸Å ÃÑ ¾× : ${totalAmount }¿ø </b><br/><br/>
-<form action="../end/end.html">
-	<input type="submit" value="±¸¸Å È®Á¤" name="btn">
+</table><br/><br/><b>êµ¬ ë§¤ ì´ ì•¡ : ${totalAmount }ì› </b><br/><br/>
+<form action="/end/end.html">
+	<input type="submit" value="êµ¬ë§¤ í™•ì •" name="btn">
 </form>
 </div>
 </body>

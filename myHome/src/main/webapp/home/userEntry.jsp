@@ -1,62 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">°³ÀÎ Á¤º¸ ÀÔ·Â</h3>
+<h3 align="center">ê°œì¸ ì •ë³´ ì…ë ¥</h3>
 <form:form action="../entry/register.html" method="post" name="frm" modelAttribute="user"
 	onsubmit="return check()">
 <form:hidden path="idChecked"/>
 <table>
-	<tr><th>°è Á¤</th><td><form:input path="user_id"/>
+	<tr><th>ê³„ ì •</th><td><form:input path="user_id"/>
 		<font color="red" size="2"><form:errors path="idChecked"/></font>
-		<input type="button" value="Áßº¹°Ë»ç" onclick="idCheck()"/></td></tr>
-	<tr><th>ÀÌ ¸§</th><td><form:input path="name"/>
+		<input type="button" value="ì¤‘ë³µê²€ì‚¬" onclick="idCheck()"/></td></tr>
+	<tr><th>ì´ ë¦„</th><td><form:input path="name"/>
 		<font color="red"><form:errors path="name"/></font></td></tr>
-	<tr><th>ÁÖ ¼Ò</th><td><form:input path="addr"/>
+	<tr><th>ì£¼ ì†Œ</th><td><form:input path="addr"/>
 		<font color="red"><form:errors path="addr"/></font></td></tr>
-	<tr><th>¿¬¶ôÃ³</th><td><form:input path="phone"/>
+	<tr><th>ì—°ë½ì²˜</th><td><form:input path="phone"/>
 		<font color="red"><form:errors path="phone"/></font></td></tr>
-	<tr><th>¾Ï È£</th><td><form:password path="user_pwd"/>
+	<tr><th>ì•” í˜¸</th><td><form:password path="user_pwd"/>
 		<font color="red"><form:errors path="user_pwd"/></font></td></tr>
-	<tr><th>¾ÏÈ£È®ÀÎ</th><td><input type="password" name="CONFIRM"/></td></tr>
-	<tr><th>¼º º°</th><td>³²<form:radiobutton path="gender" value="M"/>,
-			¿©<form:radiobutton path="gender" value="F"/>
+	<tr><th>ì•”í˜¸í™•ì¸</th><td><input type="password" name="CONFIRM"/></td></tr>
+	<tr><th>ì„± ë³„</th><td>ë‚¨<form:radiobutton path="gender" value="M"/>,
+			ì—¬<form:radiobutton path="gender" value="F"/>
 			<font color="red"><form:errors path="gender"/></font></td></tr>
-	<tr><th>ÀÌ¸ŞÀÏ</th><td><form:input path="email"/>
+	<tr><th>ì´ë©”ì¼</th><td><form:input path="email"/>
 			<font color="red"><form:errors path="email"/></font></td></tr>
-	<tr><th>»ı ÀÏ</th><td><input type="date" name="birth" />
+	<tr><th>ìƒ ì¼</th><td><input type="date" name="birth" />
 			<font color="red"><form:errors path="birth"/></font></td></tr>
-	<tr><th>Á÷ ¾÷</th><td><form:select path="job">
-		<form:option value="ÇĞ »ı">ÇĞ »ı</form:option>
-		<form:option value="È¸»ç¿ø">È¸»ç¿ø</form:option>
-		<form:option value="ÁÖ ºÎ">ÁÖ ºÎ</form:option>
-		<form:option value="ÀÚ¿µ¾÷">ÀÚ¿µ¾÷</form:option>
-		<form:option value="±â Å¸">±â Å¸</form:option>
+	<tr><th>ì§ ì—…</th><td><form:select path="job">
+		<form:option value="í•™ ìƒ">í•™ ìƒ</form:option>
+		<form:option value="íšŒì‚¬ì›">íšŒì‚¬ì›</form:option>
+		<form:option value="ì£¼ ë¶€">ì£¼ ë¶€</form:option>
+		<form:option value="ìì˜ì—…">ìì˜ì—…</form:option>
+		<form:option value="ê¸° íƒ€">ê¸° íƒ€</form:option>
 				</form:select></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="°¡ÀÔÇÏ±â"/>
-		<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ê°€ì…í•˜ê¸°"/>
+		<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 </table><br/>
 <script type="text/javascript">
 function check(){
 	if(document.frm.user_pwd.value != document.frm.CONFIRM.value){
-		alert("¾ÏÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù."); return false;
+		alert("ì•”í˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."); return false;
 	}
 }
 function idCheck(){
 	if(document.frm.user_id.value == ''){
-		alert("°èÁ¤À» ÀÔ·ÂÇÏ¼¼¿ä."); document.frm.user_id.focus(); return false;
+		alert("ê³„ì •ì„ ì…ë ¥í•˜ì„¸ìš”."); document.frm.user_id.focus(); return false;
 	}else {
 		if(document.frm.user_id.value.length < 5 || 
 				document.frm.user_id.value.length > 15){
-			alert("°èÁ¤Àº 6ÀÚ ÀÌ»ó, 15ÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇÏ¼¼¿ä."); 
+			alert("ê³„ì •ì€ 6ì ì´ìƒ, 15ì ì´í•˜ë¡œ ì…ë ¥í•˜ì„¸ìš”."); 
 			document.frm.user_id.focus(); return false;
 		}
 	}

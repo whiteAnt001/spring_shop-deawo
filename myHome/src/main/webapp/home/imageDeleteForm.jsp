@@ -1,51 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>юл╧лаЖ ╟т╫ц╠ш ╩С╪╪ ╨╦╠Б</h3>
-<form:form action="../image/deleteDo.html" method="post" modelAttribute="imagebbs" 
+<h3>Л²╢К╞╦Л╖─ Й╡▄Л▀°Й╦─ Л┐│Л└╦ КЁ╢Й╦╟</h3>
+<form:form action="/image/deleteDo.html" method="post" modelAttribute="imagebbs" 
 		onsubmit="return check(this)">
 <form:hidden path="w_id"/>
 <form:hidden path="password"/>
 <table>
-	<tr><th>а╕ ╦Я</th><td>
+	<tr><th>Л═° К╙╘</th><td>
 		<form:input path="title" readonly="true"/></td></tr>
-	<tr><th>юш╪╨юз</th><td>
+	<tr><th>Л·▒Л└╠Л·░</th><td>
 		<form:input path="writer" readonly="true"/></td></tr>
-	<tr><th>╬о хё</th><td>
+	<tr><th>Л∙■ М≤╦</th><td>
 		<input type="password" name="PWD"/></td></tr>
-	<tr><th>юш╪╨юо</th><td>
+	<tr><th>Л·▒Л└╠Л²╪</th><td>
 		<form:input path="w_date" readonly="true"/></td></tr>
 	<tr><td colspan="2" align="center">
 		<img alt="" src="${pageContext.request.contextPath}/upload/${imagebbs.imagename}"
 			width="250" height="200"/></td></tr>
-	<tr><th>Ё╩ ©К</th><td><form:textarea path="content" readonly="true"
+	<tr><th>К┌╢ Л ╘</th><td><form:textarea path="content" readonly="true"
 			rows="5" cols="60"/></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="╩Ха╕"/>
-		<input type="reset" value="цК ╪р"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="Л┌╜Л═°"/>
+		<input type="reset" value="Л╥╗ Л├▄"/></td></tr>
 </table>
 </form:form>
 <script type="text/javascript">
 function check(frm){
-	if(frm.PWD.value == ''){alert("╬охё╦╕ ют╥бго╪╪©Д."); frm.PWD.focus(); return false;	}
+	if(frm.PWD.value == ''){alert("Л∙■М≤╦К╔╪ Л·┘К═╔М∙≤Л└╦Л ■."); frm.PWD.focus(); return false;	}
 	else {
-		if(frm.password.value != frm.PWD.value){//ют╥бгя ╬охё©м DBюг ╬охё╟║ ╢ы╦╔ ╟Ф©Л
-			alert("ют╥бгя ╬охё©м ╟т╫ц╠шюг ╬охё╟║ юод║гоаЖ ╬й╫ю╢о╢ы. ╬охё╦╕ х╝юнго╪╪©Д.");
+		if(frm.password.value != frm.PWD.value){//Л·┘К═╔М∙° Л∙■М≤╦Л≥─ DBЛ²≤ Л∙■М≤╦Й╟─ К▀╓К╔╦ Й╡╫Л ╟
+			alert("Л·┘К═╔М∙° Л∙■М≤╦Л≥─ Й╡▄Л▀°Й╦─Л²≤ Л∙■М≤╦Й╟─ Л²╪Л╧≤М∙≤Л╖─ Л∙┼Л┼╣К▀┬К▀╓. Л∙■М≤╦К╔╪ М≥∙Л²╦М∙≤Л└╦Л ■.");
 			frm.PWD.focus();
 			return false;
 		}
 	}
-	if( ! confirm("а╓╦╩╥н ╩Ха╕го╫ц╟з╫ю╢о╠Н?")) return false;
+	if( ! confirm("Л═∙К╖░К║° Л┌╜Л═°М∙≤Л▀°Й╡═Л┼╣К▀┬Й╧▄?")) return false;
 }
 </script>
 </div>

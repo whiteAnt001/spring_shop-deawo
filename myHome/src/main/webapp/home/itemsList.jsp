@@ -1,40 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*, java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>»óÇ° ¸ñ·Ï</h3>
+<h3>ìƒí’ˆ ëª©ë¡</h3>
 <table>
 	<tr><td align="center">
-		<form action="../item/search.html" method="post">
-			»óÇ°°Ë»ö : <input type="text" placeholder="»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä." name="NAME"/> <input type="submit" value="°Ë»ö"/>
+		<form action="/item/search.html" method="post">
+		ìƒí’ˆ ê²€ìƒ‰ : <input type="text" name="NAME"/>
+		<input type="submit" value="ê²€ìƒ‰"/>
 		</form>
 	</td></tr>
 </table>
+
 <table>
 	<tr><td align="right">${startRow + 1}~${endRow -1}/${total }</td></tr>
 </table>
-<table border="1">
-	<tr><th>»óÇ°ÄÚµå</th><th>»óÇ°ÀÌ¸§</th><th>»óÇ°°¡°İ</th><th>¿ø»êÁö</th><th>µî·ÏÀÏ</th>
-		<th>ºñ °í</th></tr>
+<table>
+	<tr><th>ìƒí’ˆì½”ë“œ</th><th>ìƒí’ˆì´ë¦„</th><th>ìƒí’ˆê°€ê²©</th><th>ì›ì‚°ì§€</th><th>ë“±ë¡ì¼</th>
+		<th>ë¹„ ê³ </th></tr>
 	<c:forEach var="item" items="${ITEMS}">
-		<tr align="center"><td>${item.item_code }</td>
-			<td><a href="../item/detail.html?CODE=${item.item_code }">${item.item_title }</a></td>
-			<td><fmt:formatNumber value="${item.price }" groupingUsed="true" currencySymbol="£Ü"/></td>
+		<tr><td>${item.item_code }</td>
+			<td><a href="/item/detail.html?CODE=${item.item_code }">${item.item_title }</a></td>
+			<td><fmt:formatNumber value="${item.price }" groupingUsed="true" currencySymbol="ï¿¦"/></td>
 			<td>${item.madein }</td>
 			<td>${item.reg_date }</td>
 		<c:if test="${sessionScope.loginUser != null && 
 							sessionScope.loginUser.id != 'admin'}">
 			<td><a href="#" 
-			onclick="window.open('../cart/addCart.html?CODE=${item.item_code }','_blank_','width=450,height=200,top=200,left=200')">Àå¹Ù±¸´Ï ´ã±â</a></td>
+			onclick="window.open('/cart/addCart.html?CODE=${item.item_code }','_blank_','width=450,height=200,top=200,left=200')">ì¥ë°”êµ¬ë‹ˆ ë‹´ê¸°</a></td>
 		</c:if>
 		</tr>
 	</c:forEach>	
@@ -48,7 +49,7 @@
 	<c:set var="endPage" value="${pageCount}"/>
 </c:if>
 <c:if test="${startPage > 10}">
-	<a href="../item/itemList.html?PAGE_NUM=${startPage - 1}">[ÀÌÀü]</a>
+	<a href="../item/itemList.html?PAGE_NUM=${startPage - 1}">[ì´ì „]</a>
 </c:if>
 <c:forEach begin="${startPage}" end="${endPage}" var="i">
 	<c:if test="${currentPage == i}"><font size="6"></c:if>
@@ -56,7 +57,7 @@
 	<c:if test="${currentPage == i}"></font></c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount}">
-	<a href="../item/itemList.html?PAGE_NUM=${endPage + 1 }">[´ÙÀ½]</a>
+	<a href="../item/itemList.html?PAGE_NUM=${endPage + 1 }">[ë‹¤ìŒ]</a>
 </c:if>
 </div>
 </body>

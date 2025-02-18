@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
 <c:choose>
 	<c:when test="${ FAIL == 'YES' }">
-		<h3>╥н╠вюн╣гаЖ ╬й╬р╫ю╢о╢ы. ╟Ха╓╟З ╬охё╦╕ х╝юнго╪╪©Д.</h3>
+		<h3>К║°Й╥╦Л²╦К░≤Л╖─ Л∙┼Л∙≤Л┼╣К▀┬К▀╓. ЙЁ└Л═∙ЙЁ╪ Л∙■М≤╦К╔╪ М≥∙Л²╦М∙≤Л└╦Л ■.</h3>
 	</c:when>
 	<c:otherwise>
-		<h3>х╞©╣гу╢о╢ы~${ sessionScope.loginUser.id }╢т~</h3>
+		<h3>М≥≤Л≤│М∙╘К▀┬К▀╓~${ sessionScope.loginUser.id }К▀≤~</h3>
 	</c:otherwise>
 </c:choose>
 </div>

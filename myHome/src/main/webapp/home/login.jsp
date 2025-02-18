@@ -1,31 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div align="right"><a href="../entry/userEntry.html">°¡ÀÔÇÏ±â</a></div>
+<div align="right"><a href="/entry/userEntry.html">ê°€ì…í•˜ê¸°</a></div>
 <div align="center" >
 <form:form action="../login/loginDo.html" method="post" 
 		modelAttribute="loginUser">
-	°èÁ¤ : <form:input path="id" size="12"/>
+	ê³„ì • : <form:input path="id" size="12"/>
 		<font color="red"><form:errors path="id"/></font><br/>
-	¾ÏÈ£ : <form:password path="password" size="12"/>
+	ì•”í˜¸ : <form:password path="password" size="12"/>
 		<font color="red"><form:errors path="password"/></font><br/><br/>
-	<input type="submit" value="·Î±×ÀÎ"/>
-	<input type="reset" value="Ãë ¼Ò"/>
+	<input type="submit" value="ë¡œê·¸ì¸"/>
+	<input type="reset" value="ì·¨ ì†Œ"/>
 </form:form>
 </div>
 <script type="text/javascript">
 function check(fm){
-	if(fm.ID.value == ''){alert("°èÁ¤À» ÀÔ·ÂÇÏ¼¼¿ä."); fm.ID.focus(); return false;}
-	if(fm.PWD.value == ''){alert("¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."); fm.PWD.focus(); return false;}
+	if(fm.ID.value == ''){alert("ê³„ì •ì„ ì…ë ¥í•˜ì„¸ìš”."); fm.ID.focus(); return false;}
+	if(fm.PWD.value == ''){alert("ì•”í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”."); fm.PWD.focus(); return false;}
 }
 </script>
 </body>

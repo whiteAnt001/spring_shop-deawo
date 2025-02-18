@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <script type="text/javascript">
 	setTimeout(function(){
-		alert("°Ô½Ã±ÛÀÌ º¯°æµÇ¾ú½À´Ï´Ù.");
-		location.href="../image/imageList.html";
+		alert("ê²Œì‹œê¸€ì´ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		location.href="/image/imageList.html";
 	},100);
 </script>
 </body>

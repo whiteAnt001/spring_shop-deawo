@@ -1,34 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">»óÇ° ÄÚµå Áßº¹ °Ë»ç °á°ú</h3>
-<form action="../item/codecheck.html" name="frm">
-	»óÇ° ÄÚµå : <input type="text" name="CODE" value="${CODE }"/>
-	<input type="submit" value="Áßº¹ °Ë»ç"/>
+<h3 align="center">ìƒí’ˆ ì½”ë“œ ì¤‘ë³µ ê²€ì‚¬ ê²°ê³¼</h3>
+<form action="/item/codecheck.html" name="frm">
+	ìƒí’ˆ ì½”ë“œ : <input type="text" name="CODE" value="${CODE }"/>
+	<input type="submit" value="ì¤‘ë³µ ê²€ì‚¬"/>
 </form><br/>
 <c:choose>
 	<c:when test="${DUP == 'NO' }">
-	${CODE }´Â »ç¿ë °¡´ÉÇÕ´Ï´Ù. <input type="button" value="»ç¿ë" onclick="codeOk()">
+	${CODE }ëŠ” ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤. <input type="button" value="ì‚¬ìš©" onclick="codeOk()">
 	</c:when>
 	<c:otherwise>
-	${CODE }´Â ÀÌ¹Ì »ç¿ë ÁßÀÔ´Ï´Ù.
+	${CODE }ëŠ” ì´ë¯¸ ì‚¬ìš© ì¤‘ì…ë‹ˆë‹¤.
 	</c:otherwise>
 </c:choose>
 <script type="text/javascript">
 function codeOk(){
-	//ÆË¾÷Ã¢ Æû(codeCheckResult.jsp)¿¡ ÀÔ·ÂµÈ »óÇ°ÄÚµå¸¦ »óÇ°µî·ÏÆû(inputItems.jsp)·Î ÀÌµ¿½ÃÅ²´Ù.
-	//Áï, ÀÚ½ÄJSP¿¡¼­ ºÎ¸ğJSP·Î µ¥ÀÌÅÍ Àü¼Û
+	//íŒì—…ì°½ í¼(codeCheckResult.jsp)ì— ì…ë ¥ëœ ìƒí’ˆì½”ë“œë¥¼ ìƒí’ˆë“±ë¡í¼(inputItems.jsp)ë¡œ ì´ë™ì‹œí‚¨ë‹¤.
+	//ì¦‰, ìì‹JSPì—ì„œ ë¶€ëª¨JSPë¡œ ë°ì´í„° ì „ì†¡
 	opener.document.itemFrm.item_code.value = document.frm.CODE.value;
 	opener.document.itemFrm.item_code.readOnly = true;
-	opener.document.itemFrm.codeChecked.value = "YES";//Áßº¹°Ë»ç¿ë ÆÄ¶ó¹ÌÅÍ¿¡ °ªÀ» ³Ö´Â´Ù.
-	self.close();//ÆË¾÷Ã¢À» ´İ´Â´Ù.
+	opener.document.itemFrm.codeChecked.value = "YES";//ì¤‘ë³µê²€ì‚¬ìš© íŒŒë¼ë¯¸í„°ì— ê°’ì„ ë„£ëŠ”ë‹¤.
+	self.close();//íŒì—…ì°½ì„ ë‹«ëŠ”ë‹¤.
 }
 </script>
 </body>

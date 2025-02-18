@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 	<c:when test="${param.R == 'NO' }">
 		<script type="text/javascript">
 			setTimeout(function(){
-				alert("´ä±ÛÀÌ Á¸ÀçÇÏ¹Ç·Î °Ô½Ã±ÛÀÌ »èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+				alert("ë‹µê¸€ì´ ì¡´ì¬í•˜ë¯€ë¡œ ê²Œì‹œê¸€ì´ ì‚­ì œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 				location.href="../image/imageList.html";
 			},100);
 		</script>
@@ -20,7 +20,7 @@
 	<c:otherwise>
 		<script type="text/javascript">
 			setTimeout(function(){
-				alert("°Ô½Ã±ÛÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.");
+				alert("ê²Œì‹œê¸€ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				location.href="../image/imageList.html";
 			},100);
 		</script>

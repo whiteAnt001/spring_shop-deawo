@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*" %>   
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 table { width: 90%; height: 60%; border: 1px solid blue; background-color: skyblue;
@@ -15,14 +14,14 @@ table { width: 90%; height: 60%; border: 1px solid blue; background-color: skybl
 </style>
 </head>
 <body>
-<h3 align="center">°øÁö±Û »ó¼¼º¸±â</h3>
+<h3 align="center">ê³µì§€ê¸€ ìƒì„¸ë³´ê¸°</h3>
 <form:form modelAttribute="notice">
 <table>
-	<tr><th>±Û¹øÈ£</th><td><form:input path="num" readonly="true"/></td></tr>
-	<tr><th>Á¦ ¸ñ</th><td><form:input path="title" readonly="true"/></td></tr>
-	<tr><th>ÀÛ¼ºÀÚ</th><td><form:input path="writer" readonly="true"/></td></tr>
-	<tr><th>ÀÛ¼ºÀÏ</th><td><form:input path="write_date" readonly="true"/></td></tr>
-	<tr><th>³» ¿ë</th><td><form:textarea path="content" rows="4" cols="50"
+	<tr><th>ê¸€ë²ˆí˜¸</th><td><form:input path="num" readonly="true"/></td></tr>
+	<tr><th>ì œ ëª©</th><td><form:input path="title" readonly="true"/></td></tr>
+	<tr><th>ì‘ì„±ì</th><td><form:input path="writer" readonly="true"/></td></tr>
+	<tr><th>ì‘ì„±ì¼</th><td><form:input path="write_date" readonly="true"/></td></tr>
+	<tr><th>ë‚´ ìš©</th><td><form:textarea path="content" rows="4" cols="50"
 								readonly="true"/></td></tr>
 </table>
 </form:form>

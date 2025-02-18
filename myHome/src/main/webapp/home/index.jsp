@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 table { width: 90%; height: 90%; border: 1px solid blue; background-color: skyblue;
@@ -30,7 +30,7 @@ td.main { width: 30%; border: 1px solid green; }
 				<div id="login">
 				<c:choose>
 					<c:when test="${sessionScope.loginUser == null }">
-						<jsp:include page="../login/login.html"/>
+						<jsp:include page="/login/login.html"/>
 					</c:when>
 					<c:otherwise>
 						<jsp:include page="logout.jsp"/>
@@ -39,43 +39,43 @@ td.main { width: 30%; border: 1px solid green; }
 				
 				</div>
 				<div id="menu">
-					<a href="../home/index.html">¡á È¨À¸·Î</a><br/>
+					<a href="../home/index.html">â–  í™ˆìœ¼ë¡œ</a><br/>
 					
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id != 'admin'}">
-						<a href="../mypage/index.html">¡á MY PAGE</a><br/>
+						<a href="../mypage/index.html">â–  MY PAGE</a><br/>
 					</c:if>
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id == 'admin'}">
-						<a href="../admin/findpage.html">¡á °¡ÀÔÀÚ Á¶È¸</a><br/>
+						<a href="../admin/findpage.html">â–  ê°€ìž…ìž ì¡°íšŒ</a><br/>
 					</c:if>
 					
-					<a href="../write/read.html">¡á °Ô½Ã±Û º¸±â</a><br/>
+					<a href="/board/read.html">â–  ê²Œì‹œê¸€ ë³´ê¸°</a><br/>
 					<c:if test="${sessionScope.loginUser != null }">
-						<a href="../write/write.html">¡á °Ô½Ã±Û ¾²±â</a><br/>
+						<a href="/board/write.html">â–  ê²Œì‹œê¸€ ì“°ê¸°</a><br/>
 					</c:if>
-					<a href="../item/itemList.html">¡á »óÇ° º¸±â</a><br/>
+					<a href="/item/itemList.html">â–  ìƒí’ˆ ë³´ê¸°</a><br/>
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id !='admin' }">
-						<a href="../cart/show.html">¡á Àå¹Ù±¸´Ï º¸±â</a><br/>
+						<a href="/cart/show.html">â–  ìž¥ë°”êµ¬ë‹ˆ ë³´ê¸°</a><br/>
 					</c:if>
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id=='admin' }">
-						<a href="../admin/deliverymenu.html">¡á ¹è¼Û »óÅÂ º¯°æ</a><br/>
-						<a href="../nation/inputNation.html">¡á »óÇ° ¿ø»êÁö µî·Ï</a><br/>
-						<a href="">¡á »óÇ° ¿ø»êÁö µî·Ï(form:form)</a><br/>
-						<a href="../item/entry.html">¡á »óÇ° µî·Ï</a><br/>
+						<a href="../admin/deliverymenu.html">â–  ë°°ì†¡ ìƒíƒœ ë³€ê²½</a><br/>
+						<a href="/nation/inputNation.html">â–  ìƒí’ˆ ì›ì‚°ì§€ ë“±ë¡</a><br/>
+						<a href="">â–  ìƒí’ˆ ì›ì‚°ì§€ ë“±ë¡(form:form)</a><br/>
+						<a href="/item/entry.html">â–  ìƒí’ˆ ë“±ë¡</a><br/>
 					</c:if>
-					<a href="../notice/list.html">¡á °øÁö»çÇ× º¸±â</a><br/>
+					<a href="/notice/list.html">â–  ê³µì§€ì‚¬í•­ ë³´ê¸°</a><br/>
 					<c:if test="${sessionScope.loginUser != null &&
 									sessionScope.loginUser.id != 'admin' }">
-						<a href="../image/imageWrite.html">¡á ÀÌ¹ÌÁö ¹× ´ä±Û °Ô½Ã±Û ¾²±â</a><br/>
+						<a href="/image/imageWrite.html">â–  ì´ë¯¸ì§€ ë° ë‹µê¸€ ê²Œì‹œê¸€ ì“°ê¸°</a><br/>
 					</c:if>
-					<a href="../image/imageList.html">¡á ÀÌ¹ÌÁö ¹× ´ä±Û °Ô½Ã±Û º¸±â</a><br/>
+					<a href="/image/imageList.html">â–  ì´ë¯¸ì§€ ë° ë‹µê¸€ ê²Œì‹œê¸€ ë³´ê¸°</a><br/>
 					<c:if test="${sessionScope.loginUser != null && 
 									sessionScope.loginUser.id=='admin' }">
-						<a href="../notice/inputForm.html">¡á °øÁö»çÇ× ¾²±â</a><br/>
-						<a href="../notice/formform.html">¡á °øÁö»çÇ× ¾²±â(form:form)</a><br/>
+						<a href="/notice/inputForm.html">â–  ê³µì§€ì‚¬í•­ ì“°ê¸°</a><br/>
+						<a href="/notice/formform.html">â–  ê³µì§€ì‚¬í•­ ì“°ê¸°(form:form)</a><br/>
 					</c:if>
 				</div>
 			</td>
@@ -95,7 +95,7 @@ td.main { width: 30%; border: 1px solid green; }
 	</table>
 </section>
 <footer>
-	<h3 align="center">À¥ ¾îÇÃ¸®ÄÉÀÌ¼Ç ÀÛ¼º ÇÁ·ÎÁ§Æ®. Copyright 2024 
+	<h3 align="center">ì›¹ ì–´í”Œë¦¬ì¼€ì´ì…˜ ìž‘ì„± í”„ë¡œì íŠ¸. Copyright 2024 
 	<font color="red"><span id="clock"></span></font></h3>
 </footer>
 <script type="text/javascript">
@@ -111,8 +111,8 @@ function workingClock(){
 	document.getElementById("clock").innerHTML = str;
 }
 function startClock(){
-	workingClock();//ÇöÀç ½Ã°£À» º¸¿©ÁÖ´Â ½Ã°è¸¦ Ãâ·ÂÇÑ´Ù.
-	setInterval(workingClock, 1000);//1ÃÊ °£°ÝÀ¸·Î workingClockÇÔ¼ö¸¦ °è¼Ó È£ÃâÇÑ´Ù.
+	workingClock();//í˜„ìž¬ ì‹œê°„ì„ ë³´ì—¬ì£¼ëŠ” ì‹œê³„ë¥¼ ì¶œë ¥í•œë‹¤.
+	setInterval(workingClock, 1000);//1ì´ˆ ê°„ê²©ìœ¼ë¡œ workingClockí•¨ìˆ˜ë¥¼ ê³„ì† í˜¸ì¶œí•œë‹¤.
 }</script>
 </body>
 </html>

@@ -1,44 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">»óÇ° µî·Ï</h3>
+<h3 align="center">ìƒí’ˆ ë“±ë¡</h3>
 <div align="center">
 <script type="text/javascript">
 function codeCheck(){
 	if(document.itemFrm.item_code.value == ''){
-		alert("»óÇ°ÄÚµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä."); return;
+		alert("ìƒí’ˆì½”ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”."); return;
 	}
-	var url="../item/codecheck.html?CODE="+document.itemFrm.item_code.value;
+	var url="/item/codecheck.html?CODE="+document.itemFrm.item_code.value;
 	window.open(url, "__blank__","width=450,height=200,top=200,left=300");
 }
 </script>
-<form:form action="../item/register.html" method="post" modelAttribute="item" name="itemFrm">
+<form:form action="/item/register.html" method="post" modelAttribute="item" name="itemFrm">
 <form:hidden path="codeChecked"/>
 	<table border="1">
-	<tr><th>»óÇ°ÄÚµå</th><td><form:input path="item_code"/>
+	<tr><th>ìƒí’ˆì½”ë“œ</th><td><form:input path="item_code"/>
 			<font color="red" size="2"><form:errors path="codeChecked"/></font>
-			<input type="button" value="ÄÚµå Áßº¹ °Ë»ç" onclick="codeCheck()"/></td></tr>
-	<tr><th>»óÇ°ÀÌ¸§</th><td><form:input path="item_title"/>
+			<input type="button" value="ì½”ë“œ ì¤‘ë³µ ê²€ì‚¬" onclick="codeCheck()"/></td></tr>
+	<tr><th>ìƒí’ˆì´ë¦„</th><td><form:input path="item_title"/>
 			<font color="red"><form:errors path="item_title"/></font></td></tr>
-	<tr><th>»óÇ°°¡°İ</th><td><form:input path="price"/>
+	<tr><th>ìƒí’ˆê°€ê²©</th><td><form:input path="price"/>
 			<font color="red"><form:errors path="price"/></font></td></tr>
-	<tr><th>¿ø»êÁö</th><td><form:select path="madein">
+	<tr><th>ì›ì‚°ì§€</th><td><form:select path="madein">
 		<c:forEach var="nation" items="${NATIONS }">
 			<form:option value="${nation.code }">${nation.name }</form:option>
 		</c:forEach></form:select></td></tr>
-	<tr><th>»óÇ°¼³¸í</th><td><form:textarea path="item_spec" rows="5" cols="40"/>
+	<tr><th>ìƒí’ˆì„¤ëª…</th><td><form:textarea path="item_spec" rows="5" cols="40"/>
 			<font color="red"><form:errors path="item_spec"/></font></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="»óÇ° µî·Ï"/>
-		<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ìƒí’ˆ ë“±ë¡"/>
+		<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 	</table>
 </form:form>
 </div>

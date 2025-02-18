@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*, model.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 .num {width: 35px;}
@@ -14,41 +13,44 @@
 </head>
 <body>
 <div align="center">
-<h3>Àå¹Ù±¸´Ï ¸ñ·Ï</h3>
+<h3>ì¥ë°”êµ¬ë‹ˆ ëª©ë¡</h3>
 <c:choose>
 	<c:when test="${CARTLIST == null}">
-		<h3>Àå¹Ù±¸´Ï°¡ ºñ¾îÀÖ½À´Ï´Ù.</h3>
+		<h3>ì¥ë°”êµ¬ë‹ˆê°€ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.</h3>
 	</c:when>
 	<c:otherwise>
 	<table>
-	<tr><th>»óÇ°ÄÚµå</th><th>»óÇ°ÀÌ¸§</th><th>°¡ °İ</th><th>»óÇ°°¹¼ö</th><th>¼Ò °è</th>
-		<th>¼öÁ¤/»èÁ¦</th></tr>
+	<tr><th>ìƒí’ˆì½”ë“œ</th><th>ìƒí’ˆì´ë¦„</th><th>ê°€ ê²©</th><th>ìƒí’ˆê°¯ìˆ˜</th><th>ì†Œ ê³„</th>
+		<th>ìˆ˜ì •/ì‚­ì œ</th></tr>
 		<c:forEach var="item" items="${CARTLIST}">
-			<form action="../cart/modify.html" method="post" onsubmit="return check()">
+			<form action="/cart/modify.html" method="post" onsubmit="return check()">
 			<input type="hidden" name="CODE" value="${item.item_code}"/>
 			<tr><td>${item.item_code}</td><td>${item.item_title }</td>
-				<td><fmt:formatNumber value="${item.price }" groupingUsed="true"/>¿ø</td>
+				<td><fmt:formatNumber value="${item.price }" groupingUsed="true"/>ì›</td>
 				<td><input type="number" name="NUM" 
 							min="0" value="${item.num }" class="num"></td>
-				<td><fmt:formatNumber value="${item.sum }" groupingUsed="true"/>¿ø</td>
-				<td><input type="submit" value="¼öÁ¤" name="BTN"/>
-					<input type="submit" value="»èÁ¦" name="BTN"/></td></tr>
+				<td><fmt:formatNumber value="${item.sum }" groupingUsed="true"/>ì›</td>
+				<td><input type="submit" value="ìˆ˜ì •" name="BTN"/>
+					<input type="submit" value="ì‚­ì œ" name="BTN"/></td></tr>
 			</form>
 		</c:forEach>
 	</table>	
+	<c:if test="${TOTAL != 0 }">
+		<form action="/checkout/checkout.html">
+		ì´ ê³„ : <fmt:formatNumber value="${TOTAL }" groupingUsed="true"/>ì›
+		<input type="submit" value="ê²°ì œí•˜ê¸°"/>
+		</form>
+	</c:if>
 	</c:otherwise>
 </c:choose>
 <script type="text/javascript">
 function check(){
-	if( ! confirm("Á¤¸»·Î ÁøÇàÇÏ½Ã°Ú½À´Ï±î?")) return false;
+	if( ! confirm("ì •ë§ë¡œ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) return false;
 }
 </script>
 
-<form action="../checkout/checkout.html">
-	ÃÑ °è : <fmt:formatNumber value="${TOTAL }" groupingUsed="true"/>¿ø
-	<input type="submit" value="°áÁ¦ÇÏ±â"/>
-</form>
- 
+
+
 </div>
 </body>
 </html>

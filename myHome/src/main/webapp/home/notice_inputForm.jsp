@@ -1,27 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3 align="center">°øÁö»çÇ× ¾²±â</h3>
-<form:form action="../notice/putForm.html" method="post" modelAttribute="notice">
+<h3 align="center">ê³µì§€ì‚¬í•­ ì“°ê¸°</h3>
+<form:form action="/notice/putForm.html" method="post" modelAttribute="notice">
 <table border="1">
-	<tr><th>°øÁö»çÇ× Á¦¸ñ</th>
+	<tr><th>ê³µì§€ì‚¬í•­ ì œëª©</th>
 		<td><form:input path="title"/>
 			<font color="red"><form:errors path="title"/></font></td></tr>
-	<tr><th>°øÁö»çÇ× ³»¿ë</th>
+	<tr><th>ê³µì§€ì‚¬í•­ ë‚´ìš©</th>
 		<td><form:textarea path="content" rows="6" cols="40"/>
 			<font color="red"><form:errors path="content"/></font></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="±Û ¿Ã¸®±â"/>
-						<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ê¸€ ì˜¬ë¦¬ê¸°"/>
+						<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 </table>
 </form:form>
 </div>

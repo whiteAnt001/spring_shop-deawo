@@ -1,55 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*, model.*" %>  
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<h3 align="center">ê²Œì‹œê¸€ ëª©ë¡</h3>
 <div align="center">
-<h3 align="center">°Ô½Ã±Û ¸ñ·Ï</h3>
-<table>
-	<tr><td align="center">
-		<form action="../write/search.html" method="post">
-			°Ô½Ã±Û °Ë»ö : <input type="text" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä." name="title"/> <input type="submit" value="°Ë»ö"/>
-		</form>
-	</td></tr>
-</table>
 <table border="1">
-	<tr><th>±Û¹øÈ£</th><th>ÀÛ¼ºÀÚ</th><th>Á¦ ¸ñ</th><th>ÀÛ¼ºÀÏ</th></tr>
+	<tr><th>ê¸€ë²ˆí˜¸</th><th>ì‘ì„±ì</th><th>ì œ ëª©</th><th>ì‘ì„±ì¼</th></tr>
 	<c:forEach var="dto" items="${BOARD }">
-	<tr align="center"><td>${dto.seq }</td>
+	<tr><td>${dto.seq }</td>
 		<td>${dto.id }</td>
-		<td><a href="../write/detail.html?SEQ=${dto.seq }">${dto.title }</a></td>
+		<td><a href="/board/detail.html?SEQ=${dto.seq }">${dto.title }</a></td>
 		<td>${dto.write_date }</td></tr>
 	</c:forEach>
 </table>
-<c:set var="currentPage" value="${currentPage }"/>
-<c:set var="pageCount" value="${pageCount }"/>
-<c:set var="startPage" 
-	value="${currentPage - (currentPage % 10 == 0 ? 10 : (currentPage % 10)) + 1 }"/>
-<c:set var="endPage" value="${ startPage + 9 }"/>	
+<c:set var="currentPage" value="${ requestScope.currentPage}" />
+<c:set var="startPage"
+	value="${currentPage - (currentPage % 10 == 0 ? 10 :(currentPage % 10)) + 1 }" />
+<c:set var="endPage" value="${startPage + 9}"/>	
+<c:set var="pageCount" value="${PAGES }"/>
 <c:if test="${endPage > pageCount }">
-	<c:set var="endPage" value="${pageCount }"/>
+	<c:set var="endPage" value="${pageCount }" />
 </c:if>
 <c:if test="${startPage > 10 }">
-	<a href="../write/read.html?PAGE_NUM=${startPage - 1 }">[ÀÌÀü]</a>
+	<a href="/board/read.html?pageNo=${startPage - 1 }">[ì´ì „]</a>
 </c:if>
 <c:forEach begin="${startPage }" end="${endPage }" var="i">
-	<c:if test="${currentPage == i }">
-		<font size="6">
-	</c:if>
-	<a href="../write/read.html?PAGE_NUM=${ i }">${ i }</a>
-	<c:if test="${currentPage == i }">
-		</font>
-	</c:if>
+	<c:if test="${currentPage == i }"><font size="6"></c:if>
+		<a href="/board/read.html?pageNo=${ i }">${ i }</a>
+	<c:if test="${currentPage == i }"></font></c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount }">
-	<a href="../write/read.html?PAGE_NUM=${endPage + 1 }">[´ÙÀ½]</a>
+	<a href="/board/read.html?pageNo=${endPage + 1 }">[ë‹¤ìŒ]</a>
 </c:if>
+
 </div>	
 </body>
 </html>

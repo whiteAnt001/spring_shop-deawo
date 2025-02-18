@@ -1,49 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<form:form action="../image/updateDo.html" method="post" enctype="multipart/form-data"
+<form:form action="/image/updateDo.html" method="post" enctype="multipart/form-data"
 	onsubmit="return check(this)" modelAttribute="imagebbs">
 <form:hidden path="w_id"/>
 <form:hidden path="password"/>
 <form:hidden path="imagename"/>
 <table>
-	<tr><th>±ÛÁ¦¸ñ</th><td><form:input path="title"/></td></tr>
-	<tr><th>ÀÛ¼ºÀÚ</th><td>${imagebbs.writer }</td></tr>
-	<tr><th>ÀÛ¼ºÀÏ</th><td>${imagebbs.w_date }</td></tr>
-	<tr><th>¾Ï È£</th><td><input type="password" name="PWD"/></td></tr>
+	<tr><th>ê¸€ì œëª©</th><td><form:input path="title"/></td></tr>
+	<tr><th>ì‘ì„±ì</th><td>${imagebbs.writer }</td></tr>
+	<tr><th>ì‘ì„±ì¼</th><td>${imagebbs.w_date }</td></tr>
+	<tr><th>ì•” í˜¸</th><td><input type="password" name="PWD"/></td></tr>
 	<tr><td colspan="2" align="center"><input type="file" name="image"/><br/>
 		<img alt="" src="${pageContext.request.contextPath}/upload/${imagebbs.imagename }"
 			 width="250" height="200"/></td></tr>
-	<tr><th>³» ¿ë</th><td><form:textarea path="content" rows="5" cols="60"/></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="¼öÁ¤"/>
-		<input type="reset" value="Ãë¼Ò"/></td></tr>
+	<tr><th>ë‚´ ìš©</th><td><form:textarea path="content" rows="5" cols="60"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ìˆ˜ì •"/>
+		<input type="reset" value="ì·¨ì†Œ"/></td></tr>
 </table>
 </form:form>
 <script type="text/javascript">
 function check(frm){
-	if(frm.title.value == ''){	alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä."); frm.title.focus(); return false;}
+	if(frm.title.value == ''){	alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”."); frm.title.focus(); return false;}
 	if(frm.PWD.value == ''){
-		alert("¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä."); frm.PWD.focus(); return false;
+		alert("ì•”í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”."); frm.PWD.focus(); return false;
 	}else {
-		if(frm.password.value != frm.PWD.value){//ÀÔ·ÂÇÑ ¾ÏÈ£¿Í DBÀÇ ¾ÏÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê´Â °æ¿ì
-			alert("¾ÏÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ¾ÏÈ£¸¦ È®ÀÎÇÏ¼¼¿ä."); frm.PWD.focus(); return false;
+		if(frm.password.value != frm.PWD.value){//ì…ë ¥í•œ ì•”í˜¸ì™€ DBì˜ ì•”í˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ” ê²½ìš°
+			alert("ì•”í˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ì•”í˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”."); frm.PWD.focus(); return false;
 		}
 	}
 	if(frm.content.value == ''){
-		alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä."); frm.content.focus(); return false;
+		alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”."); frm.content.focus(); return false;
 	}
-	if( ! confirm("Á¤¸»·Î ¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?")) return false;
+	if( ! confirm("ì •ë§ë¡œ ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) return false;
 }
 </script>
 </div>

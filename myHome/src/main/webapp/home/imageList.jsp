@@ -1,33 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*, model.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>ÀÌ¹ÌÁö °Ô½Ã±Û ¸ñ·Ï</h3>
-<table>
-	<tr><td align="center">
-		<form action="../image/search.html" method="post">
-			°Ô½Ã±Û °Ë»ö : <input type="text" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä." name="title"/> <input type="submit" value="°Ë»ö"/>
-		</form>
-	</td></tr>
-</table>
+<h3>ì´ë¯¸ì§€ ê²Œì‹œê¸€ ëª©ë¡</h3>
 <table>
 	<tr><td align="right">${ START + 1}~${ END - 1}/${ TOTAL }</td></tr>
 </table>
 <table>
-	<tr><th>ÀÌ¹ÌÁö</th><th>±Û¹øÈ£</th><th>Á¦ ¸ñ</th><th>ÀÛ¼ºÀÚ</th><th>ÀÛ¼ºÀÏ</th></tr>
+	<tr><th>ì´ë¯¸ì§€</th><th>ê¸€ë²ˆí˜¸</th><th>ì œ ëª©</th><th>ìž‘ì„±ìž</th><th>ìž‘ì„±ì¼</th></tr>
 	<c:forEach var="dto" items="${LIST }">
-		<tr align="center"><td><img alt="" src="${pageContext.request.contextPath}/upload/${dto.imagename }" width="50" 
+		<tr><td><img alt="" src="${pageContext.request.contextPath}/upload/${dto.imagename }" width="50" 
 					height="50"/></td>
 			<td>${dto.w_id }</td>
-			<td><a href="../image/readImage.html?ID=${dto.w_id }">${dto.title }</a></td>
+			<td><a href="/image/readImage.html?ID=${dto.w_id }">${dto.title }</a></td>
 			<td>${dto.writer }</td><td>${dto.w_date }</td></tr>
 	</c:forEach>
 </table>
@@ -40,7 +32,7 @@
 	<c:set var="endPage" value="${pageCount }"/>
 </c:if>
 <c:if test="${startPage > 10 }">
-	<a href="../image/imageList.html?PAGE_NUM=${startPage - 1 }">[ÀÌÀü]</a>
+	<a href="../image/imageList.html?PAGE_NUM=${startPage - 1 }">[ì´ì „]</a>
 </c:if>
 <c:forEach begin="${startPage }" end="${endPage }" var="i">
 	<c:if test="${currentPage == i }">
@@ -52,7 +44,7 @@
 	</c:if>
 </c:forEach>
 <c:if test="${endPage < pageCount }">
-	<a href="../image/imageList.html?PAGE_NUM=${endPage + 1 }">[´ÙÀ½]</a>
+	<a href="../image/imageList.html?PAGE_NUM=${endPage + 1 }">[ë‹¤ìŒ]</a>
 </c:if>
 </div>
 </body>

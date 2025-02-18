@@ -1,28 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*, java.util.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3>»óÇ° »ó¼¼ Á¤º¸</h3>
-<form:form action="../item/modifyff.html" method="post" modelAttribute="item">
+<h3>ìƒí’ˆ ìƒì„¸ ì •ë³´</h3>
+<form:form action="/item/modifyff.html" method="post" modelAttribute="item">
 <form:hidden path="codeChecked" value="yes"/>
 <form:hidden path="item_code"/>
 <table>
-	<tr><th>»óÇ°¹øÈ£</th><td>${item.item_code}</td></tr>
-	<tr><th>»óÇ°ÀÌ¸§</th><td><form:input path="item_title"/>
+	<tr><th>ìƒí’ˆë²ˆí˜¸</th><td>${item.item_code}</td></tr>
+	<tr><th>ìƒí’ˆì´ë¦„</th><td><form:input path="item_title"/>
 		<font color="red"><form:errors path="item_title"/></font></td></tr>
-	<tr><th>»óÇ°°¡°İ</th><td><form:input path="price"/>¿ø
+	<tr><th>ìƒí’ˆê°€ê²©</th><td><form:input path="price"/>ì›
 		<font color="red"><form:errors path="price"/></font></td></tr>
-	<tr><th>¿ø »ê Áö</th><td><form:select path="madein">
+	<tr><th>ì› ì‚° ì§€</th><td><form:select path="madein">
 		<c:forEach var="nation" items="${NATIONS }">
 			<c:choose>
 				<c:when test="${nation.code == item.madein }">
@@ -34,19 +33,19 @@
 			</c:choose>
 		</c:forEach>
 		</form:select></td></tr>
-	<tr><th>µî ·Ï ÀÏ</th><td><input type="date" value="${item.reg_date}"/></td></tr>
-	<tr><th>»óÇ°¼³¸í</th><td><form:textarea path="item_spec" rows="5" cols="40"/>
+	<tr><th>ë“± ë¡ ì¼</th><td><input type="date" value="${item.reg_date}"/></td></tr>
+	<tr><th>ìƒí’ˆì„¤ëª…</th><td><form:textarea path="item_spec" rows="5" cols="40"/>
 			<font color="red"><form:errors path="item_spec"/></font></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="¼öÁ¤" name="BTN"/>
-		<input type="submit" value="»èÁ¦" name="BTN"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ìˆ˜ì •" name="BTN"/>
+		<input type="submit" value="ì‚­ì œ" name="BTN"/></td></tr>
 </table>
 </form:form>
 <script type="text/javascript">
 function check(frm){
-	if(frm.NAME.value==''){	alert("»óÇ°ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä."); frm.NAME.focus(); return false;	}
-	if(frm.SPEC.value==''){ alert("»óÇ°¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä."); frm.SPEC.focus(); return false; }
-	if(frm.PRICE.value==''){alert("°¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä."); frm.PRICE.focus(); return false; }
-	if( ! confirm("Á¤¸»·Î ÀÛ¾÷À» ÁøÇàÇÏ½Ã°Ú½À´Ï±î?")) return false;
+	if(frm.NAME.value==''){	alert("ìƒí’ˆì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”."); frm.NAME.focus(); return false;	}
+	if(frm.SPEC.value==''){ alert("ìƒí’ˆì„¤ëª…ì„ ì…ë ¥í•˜ì„¸ìš”."); frm.SPEC.focus(); return false; }
+	if(frm.PRICE.value==''){alert("ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”."); frm.PRICE.focus(); return false; }
+	if( ! confirm("ì •ë§ë¡œ ì‘ì—…ì„ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) return false;
 }
 </script>
 </div>

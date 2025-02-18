@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">ÀÌ¹ÌÁö °Ô½Ã±Û ÀÛ¼º</h3>
-<form:form action="../image/write.html" method="post" enctype="multipart/form-data"
+<h3 align="center">ì´ë¯¸ì§€ ê²Œì‹œê¸€ ìž‘ì„±</h3>
+<form:form action="/image/write.html" method="post" enctype="multipart/form-data"
 	modelAttribute="bbsimage" >
 <form:hidden path="order_no" value="${bbsimage.order_no + 1 }"/>
 <c:if test="${ ! empty bbsimage.group_id}">
@@ -21,16 +21,16 @@
 <form:hidden path="parent_id" value="${bbsimage.parent_id }"/>
 </c:if>
 <table>
-	<tr><th>Á¦ ¸ñ</th><td><form:input path="title" value="${title }"/>
+	<tr><th>ì œ ëª©</th><td><form:input path="title" value="${title }"/>
 		<font color="red"><form:errors path="title"/></font></td></tr>
-	<tr><th>¾Ï È£</th><td><form:password path="password"/>
+	<tr><th>ì•” í˜¸</th><td><form:password path="password"/>
 		<font color="red"><form:errors path="password"/></font></td></tr>
-	<tr><th>ÀÌ¹ÌÁö</th><td><input type="file" name="image"/>
+	<tr><th>ì´ë¯¸ì§€</th><td><input type="file" name="image"/>
 		<font color="red"><form:errors path="image"/></font></td></tr>
-	<tr><th>³» ¿ë</th><td><form:textarea path="content" rows="8" cols="60"/>
+	<tr><th>ë‚´ ìš©</th><td><form:textarea path="content" rows="8" cols="60"/>
 		<font color="red"><form:errors path="content"/></font></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="±Û ¿Ã¸®±â"/>
-		<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ê¸€ ì˜¬ë¦¬ê¸°"/>
+		<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 </table>
 </form:form>
 </body>

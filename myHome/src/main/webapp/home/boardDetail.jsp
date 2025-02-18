@@ -1,31 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="model.*" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3 align="center">°Ô½Ã±Û »ó¼¼ Á¤º¸</h3>
+<h3 align="center">ê²Œì‹œê¸€ ìƒì„¸ ì •ë³´</h3>
 <div align="center">
-<form action="../write/modify.html" method="post">
+<form action="/board/modify.html" method="post">
 <input type="hidden" name="SEQ" value="${BOARD.seq }">
 	<table border="1">
-		<tr><th>±ÛÁ¦¸ñ</th>
-			<td><input type="text" name="TITLE" value="${BOARD.title }"></td></tr>
-		<tr><th>ÀÛ¼ºÀÚ</th><td>${BOARD.id }</td></tr>
-		<tr><th>ÀÛ¼ºÀÏ</th><td>${BOARD.write_date }</td></tr>
-		<tr><th>±Û³»¿ë</th>
-			<td><textarea rows="4" cols="40" name="CONTENT">${BOARD.content }</textarea>
+		<tr><th>ê¸€ì œëª©</th>
+			<td>
+				<c:choose>
+					<c:when test="${sessionScope.loginUser.id != null && 
+							sessionScope.loginUser.id == BOARD.id }">
+						<input type="text" name="TITLE" value="${BOARD.title }" ></c:when>
+					<c:otherwise>${BOARD.title }</c:otherwise>
+				</c:choose>
+			</td></tr>
+		<tr><th>ì‘ì„±ì</th><td>${BOARD.id }</td></tr>
+		<tr><th>ì‘ì„±ì¼</th><td>${BOARD.write_date }</td></tr>
+		<tr><th>ê¸€ë‚´ìš©</th>
+			<td>
+				<c:choose>
+					<c:when test="${sessionScope.loginUser.id != null && 
+							sessionScope.loginUser.id == BOARD.id }">
+						<textarea rows="4" cols="40" name="CONTENT">${BOARD.content }</textarea>
+					</c:when>
+					<c:otherwise>
+						<textarea rows="4" cols="40" name="CONTENT" readonly="readonly">${BOARD.content }</textarea>
+					</c:otherwise>
+				</c:choose>
 			</td></tr>
 			<c:if test="${sessionScope.loginUser.id != null && 
 							sessionScope.loginUser.id == BOARD.id }">
 				<tr><td colspan="2" align="center">
-					<input type="submit" value="¼öÁ¤" name="BTN"/>
-					<input type="submit" value="»èÁ¦" name="BTN"/></td></tr>
+					<input type="submit" value="ìˆ˜ì •" name="BTN"/>
+					<input type="submit" value="ì‚­ì œ" name="BTN"/></td></tr>
 			</c:if>
 	</table>
 </form>	

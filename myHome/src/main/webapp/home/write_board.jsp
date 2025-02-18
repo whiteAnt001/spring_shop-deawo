@@ -1,41 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>    
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <script type="text/javascript">
 function check(frm){
-	if(frm.seq.value == ''){	alert('±Û¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.'); return false;	}
+	if(frm.seq.value == ''){	alert('ê¸€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.'); return false;	}
 	else {
-		if(isNaN(frm.seq.value)){ alert("±Û¹øÈ£´Â ¼ıÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä."); return false; }
+		if(isNaN(frm.seq.value)){ alert("ê¸€ë²ˆí˜¸ëŠ” ìˆ«ìë¡œ ì…ë ¥í•˜ì„¸ìš”."); return false; }
 	}
-	if(frm.id.value == ''){ alert("ÀÛ¼ºÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä."); return false; }
-	if(frm.title.value == ''){ alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä."); return false; }
-	if(frm.content.value == ''){ alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä."); return false; }
-	if( ! confirm("Á¤¸»·Î µî·ÏÇÏ½Ã°Ú½À´Ï±î?")) return false;
+	if(frm.id.value == ''){ alert("ì‘ì„±ìë¥¼ ì…ë ¥í•˜ì„¸ìš”."); return false; }
+	if(frm.title.value == ''){ alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”."); return false; }
+	if(frm.content.value == ''){ alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”."); return false; }
+	if( ! confirm("ì •ë§ë¡œ ë“±ë¡í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) return false;
 }
 </script>
 <div align="center">
-<h3 align="center">°Ô½Ã±Û ¾²±â</h3>
-<form:form action="../write/entryBoard.html" method="post" 
-modelAttribute="board">
-<p>ÀÚÀ¯·Ó°Ô ±ÛÀ» ÀÛ¼ºÇÏ½Å ÈÄ ±Û¿Ã¸®±â ¹öÆ°À» ´©¸£¸é, ÀÛ¼ºÇÑ ±ÛÀÌ °Ô½Ã±Û¿¡ ¿Ã¶ó°©´Ï´Ù.</p>
+<h3 align="center">ê²Œì‹œê¸€ ì“°ê¸°</h3>
+<form:form action="/board/entryBoard.html" method="post" 
+					modelAttribute="board">
+<p>ììœ ë¡­ê²Œ ê¸€ì„ ì‘ì„±í•˜ì‹  í›„ ê¸€ì˜¬ë¦¬ê¸° ë²„íŠ¼ì„ ëˆ„ë¥´ë©´, ì‘ì„±í•œ ê¸€ì´ ê²Œì‹œê¸€ì— ì˜¬ë¼ê°‘ë‹ˆë‹¤.</p>
 <table border="1">
-	<tr><th>±ÛÁ¦¸ñ</th>
-		<td><form:input path="title" placeHolder="Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä." size="30"/>
+	<tr><th>ê¸€ì œëª©</th>
+		<td><form:input path="title" placeHolder="ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”." size="30"/>
 			<font color="red"><form:errors path="title"/></font></td></tr>
-	<tr><th>±Û³»¿ë</th>
+	<tr><th>ê¸€ë‚´ìš©</th>
 		<td><form:textarea path="content" rows="5" cols="50"/>
 			<font color="red"><form:errors path="content"/></font></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="±Û ¿Ã¸®±â"/>
-						<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ê¸€ ì˜¬ë¦¬ê¸°"/>
+						<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 </table>
 </form:form>
 </div>

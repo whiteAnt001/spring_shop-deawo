@@ -1,31 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div align="center">
-<h3 align="center">°øÁö»çÇ× ¾²±â</h3>
-<form action="../notice/input.html" method="post" onsubmit="return check()" name="frm">
+<h3 align="center">ê³µì§€ì‚¬í•­ ì“°ê¸°</h3>
+<form action="/notice/input.html" method="post" onsubmit="return check()" name="frm">
 <table border="1">
-	<tr><th>°øÁö»çÇ× Á¦¸ñ</th><td><input type="text" name="TITLE" size="30"/></td></tr>
-	<tr><th>°øÁö»çÇ× ³»¿ë</th><td><textarea rows="4" cols="50" name="CONTENT"></textarea></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="±Û ¿Ã¸®±â"/>
-						<input type="reset" value="Ãë ¼Ò"/></td></tr>
+	<tr><th>ê³µì§€ì‚¬í•­ ì œëª©</th><td><input type="text" name="TITLE" size="30"/></td></tr>
+	<tr><th>ê³µì§€ì‚¬í•­ ë‚´ìš©</th><td><textarea rows="4" cols="50" name="CONTENT"></textarea></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="ê¸€ ì˜¬ë¦¬ê¸°"/>
+						<input type="reset" value="ì·¨ ì†Œ"/></td></tr>
 </table>
 </form>
 <script type="text/javascript">
 function check(){
 	if(document.frm.TITLE.value == ''){
-		alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä."); return false;
+		alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”."); return false;
 	}
 	if(document.frm.CONTENT.value == ''){
-		alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä."); return false;
+		alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”."); return false;
 	}
-	if( ! confirm("Á¤¸»·Î µî·ÏÇÏ½Ã°Ú½À´Ï±î?")) return false;
+	if( ! confirm("ì •ë§ë¡œ ë“±ë¡í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) return false;
 }
 </script>
 </div>

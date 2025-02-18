@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <script type="text/javascript">
-	setTimeout(function(){alert("°¡ÀÔµÇ¾ú½À´Ï´Ù~ ÃàÇÏÇÕ´Ï´Ù~~~");} , 100);//½Ã°£ Áö¿¬ ÇÔ¼ö
+	setTimeout(function(){alert("ê°€ì…ë˜ì—ˆìŠµë‹ˆë‹¤~ ì¶•í•˜í•©ë‹ˆë‹¤~~~");} , 100);//ì‹œê°„ ì§€ì—° í•¨ìˆ˜
 </script>
 </body>
 </html>
